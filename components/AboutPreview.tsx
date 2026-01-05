@@ -8,32 +8,32 @@ import './AboutPreview.css'
 const slides = [
   {
     id: 1,
-    title: 'Наши сады',
-    image: '/images/garden1.jpg',
+    title: ' ',
+    image: '/gallery/1.jpg',
     placeholder: 'linear-gradient(135deg, rgba(140, 198, 63, 0.3) 0%, rgba(0, 104, 56, 0.5) 100%)'
   },
   {
     id: 2,
-    title: 'Сбор урожая',
-    image: '/images/harvest.jpg',
+    title: ' ',
+    image: '/gallery/2.jpg',
     placeholder: 'linear-gradient(135deg, rgba(0, 104, 56, 0.5) 0%, rgba(140, 198, 63, 0.3) 100%)'
   },
   {
     id: 3,
-    title: 'Экспорт продукции',
-    image: '/images/export.jpg',
+    title: ' ',
+    image: '/gallery/3.jpg',
     placeholder: 'linear-gradient(135deg, rgba(140, 198, 63, 0.2) 0%, rgba(0, 77, 42, 0.6) 100%)'
   },
     {
     id: 4,
-    title: 'Сбор урожая',
-    image: '/images/harvest.jpg',
+    title: ' ',
+    image: '/gallery/4.jpg',
     placeholder: 'linear-gradient(135deg, rgba(0, 104, 56, 0.5) 0%, rgba(140, 198, 63, 0.3) 100%)'
   },
   {
     id: 5,
-    title: 'Экспорт продукции',
-    image: '/images/export.jpg',
+    title: ' ',
+    image: '/gallery/5.jpg',
     placeholder: 'linear-gradient(135deg, rgba(140, 198, 63, 0.2) 0%, rgba(0, 77, 42, 0.6) 100%)'
   }
 ]
@@ -45,7 +45,7 @@ export default function AboutPreview() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
+    }, 3000)
     return () => clearInterval(interval)
   }, [])
 
@@ -102,12 +102,19 @@ export default function AboutPreview() {
                   className={`slider-slide ${activeSlide === index ? 'active' : ''}`}
                   style={{ background: slide.placeholder }}
                 >
+                  <img 
+                    src={slide.image} 
+                    alt={slide.title}
+                    className="slider-slide-image"
+                  />
                   <div className="slider-slide-content">
                     <span className="slider-slide-title">{slide.title}</span>
                   </div>
                 </div>
               ))}
-              
+              <Link href="/gallery" className="slider-more-btn">
+                Больше фото
+              </Link>
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 import Hero from '@/components/Hero'
 import Features from '@/components/Features'
+import MafRodaProcess from '@/components/MafRodaProcess'
 import AboutPreview from '@/components/AboutPreview'
 import CTA from '@/components/CTA'
 import './page.css'
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <Hero />
       <Features />
+      <MafRodaProcess />
       <AboutPreview />
       <CTA />
     </>

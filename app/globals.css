@@ -48,7 +48,13 @@ a {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 16px;
+}
+
+@media (min-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -64,7 +70,7 @@ a {
 }
 
 .section {
-  padding: 80px 0;
+  padding: 60px 0;
 }
 
 @media (min-width: 768px) {
@@ -74,28 +80,42 @@ a {
 }
 
 .section-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--primary-green);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   display: block;
 }
 
+@media (min-width: 768px) {
+  .section-label {
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+}
+
 .section-title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
   color: var(--text-dark);
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
+@media (min-width: 480px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
 @media (min-width: 768px) {
   .section-title {
     font-size: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -104,10 +124,10 @@ a {
 }
 
 .section-subtitle {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: var(--text-gray);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -127,7 +147,7 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 14px 28px;
+  padding: 12px 22px;
   background: var(--primary-green);
   color: white;
   border-radius: 6px;
@@ -135,8 +155,15 @@ a {
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   letter-spacing: 0.01em;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+  }
 }
 
 .btn:hover {

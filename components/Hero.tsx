@@ -8,6 +8,12 @@ export default function Hero() {
 
   return (
     <section className="hero">
+      <div className="hero-video-bg">
+        <video autoPlay muted loop playsInline>
+          <source src="/videos/otush.webm" type="video/webm" />
+        </video>
+      </div>
+      <div className="hero-overlay"></div>
       <div className="container">
         <div className="hero-container">
           <div className="hero-content">
@@ -41,7 +47,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div className="hero-image">
+          {/* <div className="hero-image">
             <div className="hero-image-wrapper">
               <div style={{ 
                 background: 'linear-gradient(135deg, #8cc63f 0%, #006838 100%)', 
@@ -55,7 +61,7 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

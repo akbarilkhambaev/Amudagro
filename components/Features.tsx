@@ -1,82 +1,105 @@
 'use client'
 
+import Link from 'next/link'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { FaSeedling, FaTint, FaHandshake, FaStar, FaCog, FaChartLine, FaShieldAlt, FaGlobe } from 'react-icons/fa'
 import './Features.css'
+
+const peachSorts = [
+  {
+    id: 1,
+    name: 'Big Top',
+    image: '/sorts/beg-top.avif',
+    description: 'Крупноплодный сорт персика с насыщенным сладким вкусом и ярким ароматом. Идеален для свежего потребления.',
+    characteristics: {
+      weight: '200-280 г',
+      harvest: 'Июль-Август',
+      taste: 'Сладкий',
+      color: 'Жёлто-красный'
+    }
+  },
+  {
+    id: 2,
+    name: 'Кларисс',
+    image: '/sorts/klariss.avif',
+    description: 'Ранний сорт с нежной мякотью и приятным ароматом. Отличается высокой урожайностью и устойчивостью.',
+    characteristics: {
+      weight: '150-200 г',
+      harvest: 'Июнь-Июль',
+      taste: 'Сладко-кислый',
+      color: 'Жёлтый'
+    }
+  },
+  {
+    id: 3,
+    name: 'Конкети',
+    image: '/sorts/konqueti.avif',
+    description: 'Среднеспелый сорт с плотной мякотью, подходящий для транспортировки и длительного хранения.',
+    characteristics: {
+      weight: '180-220 г',
+      harvest: 'Август',
+      taste: 'Сладкий',
+      color: 'Оранжево-красный'
+    }
+  },
+  {
+    id: 4,
+    name: 'Сорт премиум',
+    image: '/sorts/sort.avif',
+    description: 'Элитный сорт персика с исключительными вкусовыми качествами. Выращивается по специальной технологии.',
+    characteristics: {
+      weight: '220-300 г',
+      harvest: 'Июль-Август',
+      taste: 'Медовый',
+      color: 'Красно-жёлтый'
+    }
+  }
+]
 
 export default function Features() {
   const { t } = useLanguage()
-
-  const features = [
-    {
-      title: t.home.features.modern.title,
-      description: t.home.features.modern.desc,
-      icon: FaSeedling,
-      number: '01',
-    },
-    {
-      title: t.home.features.irrigation.title,
-      description: t.home.features.irrigation.desc,
-      icon: FaTint,
-      number: '02',
-    },
-    {
-      title: t.home.features.partnerships.title,
-      description: t.home.features.partnerships.desc,
-      icon: FaHandshake,
-      number: '03',
-    },
-    {
-      title: t.home.features.quality.title,
-      description: t.home.features.quality.desc,
-      icon: FaStar,
-      number: '04',
-    },
-    {
-      title: 'Мониторинг',
-      description: 'Современные системы мониторинга урожайности и качества продукции',
-      icon: FaChartLine,
-      number: '05',
-    },
-    {
-      title: 'Экспорт',
-      description: 'Поставки сельскохозяйственной продукции на международные рынки',
-      icon: FaGlobe,
-      number: '06',
-    },
-  ]
 
   return (
     <section className="features section">
       <div className="container">
         <div className="features-header">
-          <span className="section-label">Наши услуги</span>
-          <h2 className="section-title">{t.home.features.title}</h2>
+          <span className="section-label">Наша продукция</span>
+          <h2 className="section-title">Сорта персиков и нектаринов</h2>
           <p className="section-subtitle">
-            Мы предоставляем полный комплекс услуг для сельского хозяйства
+            Мы выращиваем лучшие сорта персиков и нектаринов с использованием современных технологий
           </p>
         </div>
-        <div className="features-grid">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon
-            return (
-              <div key={index} className="feature-card">
-                <span className="feature-card-number">{feature.number}</span>
-                <div className="feature-icon">
-                  <IconComponent />
-                </div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+        <div className="products-grid">
+          {peachSorts.map((sort) => (
+            <div key={sort.id} className="product-card">
+              <div className="product-image">
+                <img src={sort.image} alt={sort.name} />
               </div>
-            )
-          })}
-        </div>
-        <div className="maf-roda-preview">
-          <div className="maf-roda-icon">
-            <FaCog />
-          </div>
-          <h3>{t.home.mafRoda.title}</h3>
-          <p>{t.home.mafRoda.desc}</p>
+              <div className="product-content">
+                <h3 className="product-name">{sort.name}</h3>
+                <div className="product-characteristics">
+                  <div className="characteristic">
+                    <span className="characteristic-label">Вес</span>
+                    <span className="characteristic-value">{sort.characteristics.weight}</span>
+                  </div>
+                  <div className="characteristic">
+                    <span className="characteristic-label">Сбор</span>
+                    <span className="characteristic-value">{sort.characteristics.harvest}</span>
+                  </div>
+                  <div className="characteristic">
+                    <span className="characteristic-label">Вкус</span>
+                    <span className="characteristic-value">{sort.characteristics.taste}</span>
+                  </div>
+                  <div className="characteristic">
+                    <span className="characteristic-label">Цвет</span>
+                    <span className="characteristic-value">{sort.characteristics.color}</span>
+                  </div>
+                </div>
+                <Link href="/products" className="product-btn">
+                  Подробнее
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
