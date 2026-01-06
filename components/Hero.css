@@ -1,7 +1,7 @@
 .hero {
   background: linear-gradient(135deg, #006838 0%, #004d2a 50%, #003d22 100%);
   color: white;
-  padding: 120px 0 60px;
+  padding: 200px 0 100px;
   position: relative;
   overflow: hidden;
   min-height: auto;
@@ -19,7 +19,7 @@
 @media (min-width: 1024px) {
   .hero {
     padding: 160px 0 100px;
-    min-height: 90vh;
+    min-height: 100vh;
   }
 }
 
@@ -102,6 +102,7 @@
   position: relative;
   z-index: 1;
   text-align: center;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 1024px) {

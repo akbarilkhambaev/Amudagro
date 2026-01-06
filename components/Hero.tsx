@@ -10,20 +10,14 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-video-bg">
         <video autoPlay muted loop playsInline>
-          <source src="/videos/otush.webm" type="video/webm" />
+          <source src="/videos/otush.mp4" type="video/mp4" />
         </video>
       </div>
       <div className="hero-overlay"></div>
       <div className="container">
         <div className="hero-container">
           <div className="hero-content">
-            <div className="hero-badge">
-              <span className="hero-badge-dot"></span>
-              <span>AMUDAGRO — Ваш надежный партнер</span>
-            </div>
             <h1>{t.home.hero.title}</h1>
-            <p className="hero-subtitle">{t.home.hero.subtitle}</p>
-            <p className="hero-description">{t.home.hero.description}</p>
             <div className="hero-buttons">
               <Link href="/contacts" className="btn btn-white">
                 {t.home.hero.cta}
