@@ -23,7 +23,7 @@ interface Product {
     uz: string
   }
   caliber: string
-  weight: string
+  sugar: string
   season: string
 }
 
@@ -31,149 +31,186 @@ interface Product {
 const products: Product[] = [
   // Нектарины
   {
-    id: 'big-top',
+    id: 'Honey Sugar',
     category: 'nectarine',
-    image: '/sorts/beg-top.avif',
+    image: '/nectarins/honey_sugar.avif',
     name: {
-      ru: 'Big Top',
-      en: 'Big Top',
-      uz: 'Big Top',
+      ru: 'Honey Sugar',
+      en: 'Honey Sugar',
+      uz: 'Honey Sugar',
     },
     shortDescription: {
       ru: 'Крупный нектарин с красно-желтой кожицей и сладкой мякотью',
       en: 'Large nectarine with red-yellow skin and sweet flesh',
       uz: 'Qizil-sariq po\'stli va shirin go\'shtli yirik nektarin',
     },
-    caliber: '70-85 mm',
-    weight: '150-180 g',
-    season: 'Июль-Август',
+    caliber: '65-75 мм',
+    sugar: '14° Brix',
+    season: '15-25 Июнь',
   },
   {
-    id: 'klariss',
+    id: 'Kinolea',
     category: 'nectarine',
-    image: '/sorts/klariss.avif',
+    image: '/nectarins/kinolea.avif',
     name: {
-      ru: 'Кларисс',
-      en: 'Clariss',
-      uz: 'Klariss',
+      ru: 'Кинолеа',
+      en: 'Kinolea',
+      uz: 'Kinolea',
     },
     shortDescription: {
       ru: 'Ранний сорт с ярким красным румянцем и плотной мякотью',
       en: 'Early variety with bright red blush and firm flesh',
       uz: 'Yorqin qizil rangdagi va zich go\'shtli erta nav',
     },
-    caliber: '65-75 mm',
-    weight: '130-150 g',
-    season: 'Июнь-Июль',
+    caliber: '65-75 мм ',
+    sugar: '16° Brix',
+    season: '10-15 Июнь',
   },
   {
-    id: 'venus',
+    id: 'Honey Top',
     category: 'nectarine',
-    image: '/sorts/sort.avif',
+    image: '/nectarins/honey_top.avif',
     name: {
-      ru: 'Венус',
-      en: 'Venus',
-      uz: 'Venus',
+      ru: 'Honey Top',
+      en: 'Honey Top',
+      uz: 'Honey Top',
     },
     shortDescription: {
       ru: 'Среднеспелый сорт с отличными вкусовыми качествами',
       en: 'Mid-season variety with excellent taste qualities',
       uz: 'A\'lo ta\'m sifatlariga ega o\'rta pishar nav',
     },
-    caliber: '70-80 mm',
-    weight: '140-160 g',
-    season: 'Июль',
+    caliber: '65-75 мм ',
+    sugar: '15° Brix',
+    season: '25-30 Июнь',
   },
   {
-    id: 'nectaross',
+    id: 'Luciana',
     category: 'nectarine',
-    image: '/sorts/sort.avif',
+    image: '/nectarins/luciana.avif',
     name: {
-      ru: 'Нектаросс',
-      en: 'Nectaross',
-      uz: 'Nektaross',
+      ru: 'Лусиана',
+      en: 'Luciana',
+      uz: 'Luciana',
     },
     shortDescription: {
       ru: 'Поздний сорт с высокой транспортабельностью',
       en: 'Late variety with high transportability',
       uz: 'Yuqori tashish qobiliyatiga ega kech nav',
     },
-    caliber: '70-85 mm',
-    weight: '150-170 g',
-    season: 'Август-Сентябрь',
+    caliber: '65-75 мм ',
+    sugar: '15° Brix',
+    season: '01-10 Июль',
   },
   // Абрикосы
   {
-    id: 'konqueti',
-    category: 'apricot',
-    image: '/sorts/konqueti.avif',
+    id: 'Clariss',
+    category: 'nectarine',
+    image: '/nectarins/clarris.avif',
     name: {
-      ru: 'Конкуети',
-      en: 'Conqueti',
-      uz: 'Konkveti',
+      ru: 'Кларисс',
+      en: 'Clariss',
+      uz: 'Klariss',
     },
     shortDescription: {
       ru: 'Крупный абрикос с интенсивным оранжевым цветом',
       en: 'Large apricot with intense orange color',
       uz: 'Yorqin to\'q sariq rangdagi yirik o\'rik',
     },
-    caliber: '60-70 mm',
-    weight: '120-150 g',
-    season: 'Июнь-Июль',
+    caliber: '65-75 мм ',
+    sugar: '14° Brix',
+    season: '15-25 Июль',
   },
   {
-    id: 'faralia',
-    category: 'apricot',
-    image: '/sorts/sort.avif',
+    id: 'Conquete',
+    category: 'nectarine',
+    image: '/nectarins/conquete.avif',
     name: {
-      ru: 'Фаралия',
-      en: 'Faralia',
-      uz: 'Faraliya',
+      ru: 'Конкетти',
+      en: 'Conquete',
+      uz: 'Konketa',
     },
     shortDescription: {
       ru: 'Ароматный абрикос с нежной текстурой мякоти',
       en: 'Aromatic apricot with delicate flesh texture',
       uz: 'Nozik go\'sht tuzilishiga ega xushbo\'y o\'rik',
     },
-    caliber: '55-65 mm',
-    weight: '100-130 g',
-    season: 'Июнь',
+    caliber: '65-75 мм ',
+    sugar: '16° Brix',
+    season: '01-10 Август',
   },
   {
-    id: 'kioto',
+    id: 'Rubissia',
     category: 'apricot',
-    image: '/sorts/sort.avif',
+    image: '/appricots/rubissia.avif',
     name: {
-      ru: 'Киото',
-      en: 'Kioto',
-      uz: 'Kioto',
+      ru: 'Рубиссия',
+      en: 'Rubissia',
+      uz: 'Rubissia',
     },
     shortDescription: {
-      ru: 'Японский сорт с высоким содержанием сахара',
-      en: 'Japanese variety with high sugar content',
-      uz: 'Yuqori shakar miqdoriga ega yapon navi',
+      ru: 'Французский сорт с высоким содержанием сахара',
+      en: 'French variety with high sugar content',
+      uz: 'Yuqori shakar miqdoriga ega fransuz navi',
     },
-    caliber: '60-70 mm',
-    weight: '110-140 g',
-    season: 'Июль',
+    caliber: '40-50 мм ',
+    sugar: '15° Brix',
+    season: '25-30 Май',
   },
   {
-    id: 'fardao',
+    id: 'Bolero',
     category: 'apricot',
-    image: '/sorts/sort.avif',
+    image: '/appricots/bolero.avif',
     name: {
-      ru: 'Фардао',
-      en: 'Fardao',
-      uz: 'Fardao',
+      ru: 'Болеро',
+      en: 'Bolero',
+      uz: 'Bolero',
     },
     shortDescription: {
       ru: 'Плотный абрикос идеальный для транспортировки',
       en: 'Firm apricot ideal for transportation',
       uz: 'Tashishga ideal bo\'lgan zich o\'rik',
     },
-    caliber: '65-75 mm',
-    weight: '130-160 g',
-    season: 'Июль-Август',
+    caliber: '40-50 мм ',
+    sugar: '15° Brix',
+    season: '01-10 Июнь',
+  },
+    {
+    id: 'Milord',
+    category: 'apricot',
+    image: '/appricots/milord.avif',
+    name: {
+      ru: 'Милорд',
+      en: 'Milord',
+      uz: 'Milord',
+    },
+    shortDescription: {
+      ru: 'Плотный абрикос идеальный для транспортировки',
+      en: 'Firm apricot ideal for transportation',
+      uz: 'Tashishga ideal bo\'lgan zich o\'rik',
+    },
+    caliber: '40-50 мм ',
+    sugar: '17° Brix',
+    season: '05-15 Июль',
+  },
+
+      {
+    id: 'Madrigal',
+    category: 'apricot',
+    image: '/appricots/madrigal.avif',
+    name: {
+      ru: 'Мадригал',
+      en: 'Madrigal ',
+      uz: 'Madrigal',
+    },
+    shortDescription: {
+      ru: 'Плотный абрикос идеальный для транспортировки',
+      en: 'Firm apricot ideal for transportation',
+      uz: 'Tashishga ideal bo\'lgan zich o\'rik',
+    },
+    caliber: '40-50 мм ',
+    sugar: '19° Brix',
+    season: '10-20 Июль',
   },
 ]
 
@@ -214,10 +251,10 @@ export default function Products() {
       en: 'Caliber',
       uz: 'Kalibr',
     },
-    weight: {
-      ru: 'Вес',
-      en: 'Weight',
-      uz: 'Og\'irlik',
+    sugar: {
+      ru: 'Сладость',
+      en: 'Sugar',
+      uz: 'Shakar',
     },
     season: {
       ru: 'Сезон',
@@ -264,8 +301,8 @@ export default function Products() {
             <span className="spec-value">{product.caliber}</span>
           </div>
           <div className="spec-item">
-            <span className="spec-label">{labels.weight[language]}</span>
-            <span className="spec-value">{product.weight}</span>
+            <span className="spec-label">{labels.sugar[language]}</span>
+            <span className="spec-value">{product.sugar}</span>
           </div>
           <div className="spec-item">
             <span className="spec-label">{labels.season[language]}</span>
