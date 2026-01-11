@@ -18,28 +18,7 @@ export default function Hero() {
         <div className="hero-container">
           <div className="hero-content">
             <h1>{t.home.hero.title}</h1>
-            <div className="hero-buttons">
-              <Link href="/contacts" className="btn btn-white">
-                {t.home.hero.cta}
-              </Link>
-              <Link href="/about" className="btn btn-outline-white">
-                Узнать больше
-              </Link>
-            </div>
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <div className="hero-stat-number">55+</div>
-                <div className="hero-stat-label">Лет опыта</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-number">1000+</div>
-                <div className="hero-stat-label">Гектаров</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-number">50+</div>
-                <div className="hero-stat-label">Партнёров</div>
-              </div>
-            </div>
+
           </div>
           {/* <div className="hero-image">
             <div className="hero-image-wrapper">

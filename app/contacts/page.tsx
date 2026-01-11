@@ -10,16 +10,57 @@ export default function Contacts() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null
+    message: string
+  }>({ type: null, message: '' })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Здесь будет логика отправки формы
-    alert(t.language === 'ru' 
-      ? 'Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.'
-      : 'Thank you for your message! We will contact you soon.')
-    setFormData({ name: '', email: '', message: '' })
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: '' })
+
+    try {
+      const response = await fetch('/api/send-telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (response.ok && data.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: t.language === 'ru' 
+            ? 'Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.'
+            : t.language === 'uz'
+            ? 'Xabaringiz uchun rahmat! Tez orada siz bilan bog\'lanamiz.'
+            : 'Thank you for your message! We will contact you soon.'
+        })
+        setFormData({ name: '', email: '', phone: '', message: '' })
+      } else {
+        throw new Error(data.message || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      setSubmitStatus({
+        type: 'error',
+        message: t.language === 'ru'
+          ? 'Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.'
+          : t.language === 'uz'
+          ? 'Xabar yuborishda xatolik yuz berdi. Iltimos, keyinroq urinib ko\'ring yoki biz bilan to\'g\'ridan-to\'g\'ri bog\'laning.'
+          : 'An error occurred while sending the message. Please try again later or contact us directly.'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (
@@ -104,6 +145,13 @@ export default function Contacts() {
 
             <div className="contact-form-wrapper">
               <h2>{t.contacts.form.send}</h2>
+              
+              {submitStatus.type && (
+                <div className={`form-message ${submitStatus.type}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">{t.contacts.form.name}</label>
@@ -114,6 +162,7 @@ export default function Contacts() {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    disabled={isSubmitting}
                     placeholder="Ваше имя"
                   />
                 </div>
@@ -126,7 +175,21 @@ export default function Contacts() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    disabled={isSubmitting}
                     placeholder="email@example.com"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="phone">{t.contacts.form.phone}</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    disabled={isSubmitting}
+                    placeholder="+998 XX XXX XX XX"
                   />
                 </div>
                 <div className="form-group">
@@ -138,11 +201,15 @@ export default function Contacts() {
                     onChange={handleChange}
                     rows={6}
                     required
+                    disabled={isSubmitting}
                     placeholder="Ваше сообщение..."
                   ></textarea>
                 </div>
-                <button type="submit" className="btn">
-                  {t.contacts.form.send}
+                <button type="submit" className="btn" disabled={isSubmitting}>
+                  {isSubmitting 
+                    ? (t.language === 'ru' ? 'Отправка...' : t.language === 'uz' ? 'Yuborilmoqda...' : 'Sending...')
+                    : t.contacts.form.send
+                  }
                 </button>
               </form>
             </div>

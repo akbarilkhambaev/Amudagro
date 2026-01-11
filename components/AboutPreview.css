@@ -81,12 +81,12 @@
 }
 
 .about-preview-text .btn-white {
-  background: white;
+  background: var(--soft-green);
   color: var(--primary-green);
 }
 
 .about-preview-text .btn-white:hover {
-  background: #f0f0f0;
+  background: #e0f0e8;
 }
 
 .about-preview-stats {
@@ -262,7 +262,7 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
   z-index: 20;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(240, 247, 244, 0.95);
   color: var(--primary-green);
   padding: 1rem 2rem;
   border-radius: 50px;
@@ -283,7 +283,7 @@
 }
 
 .slider-more-btn:hover {
-  background: white;
+  background: var(--soft-green);
   transform: translate(-50%, -50%) scale(1.05);
   box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
@@ -292,7 +292,7 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background: white;
+  background: var(--soft-green);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);

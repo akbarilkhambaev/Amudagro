@@ -9,7 +9,6 @@ interface MafStep {
   title: string;
   text: string;
   icon: React.ComponentType;
-  stats?: string;
   media: string;
   mediaType: 'image' | 'video' | 'lottie';
 }
@@ -19,42 +18,38 @@ const steps: MafStep[] = [
     title: 'Современная сортировка — MAF Roda (Франция)',
     text: 'Профессиональная автоматизированная линия сортировки фруктов, обеспечивающая высокую производительность и точность.',
     icon: FaCogs,
-    stats: '10 тонн/час',
     media: '/lottie/robotics.lottie', // путь к .lottie файлу
     mediaType: 'lottie',
   },
   {
-    title: 'Калибровка по размеру и весу',
+    title: 'Калибровка по размеру, весу и по дефектам',
     text: 'Точная автоматическая сортировка без человеческого фактора. Каждый плод проходит индивидуальную оценку.',
     icon: FaBalanceScale,
-    stats: '±2г точность',
     media: '/lottie/calibration.lottie', // путь к .lottie файлу
     mediaType: 'lottie',
   },
   {
     title: 'Отбор по цвету и качеству',
-    text: 'Оптические сенсоры анализируют цвет, форму и внешние дефекты, обеспечивая стабильное премиум-качество.',
+    text: 'Оптические сенсоры анализируют цвет, форму, внешние и внутренние дефекты, обеспечивая стабильное премиум-качество.',
     icon: FaEye,
-    stats: '99% точность',
     media: '/lottie/click.lottie', // путь к .lottie файлу
+    mediaType: 'lottie',
+  },
+    {
+    title: 'Упаковка и охлаждение',
+    text: 'Предохлаждение, контролируемое хранение и упаковка по международным стандартам для сохранения свежести.',
+    icon: FaBoxOpen,
+    media: '/lottie/packaging.lottie', // путь к .lottie файлу
     mediaType: 'lottie',
   },
   {
     title: 'Стабильность поставок',
     text: 'Единый стандарт качества для международных клиентов. Надёжные партнёрства с импортёрами по всему миру.',
     icon: FaTruck,
-    stats: '20+ стран',
     media: '/lottie/truck.lottie', // путь к .lottie файлу
     mediaType: 'lottie',
-  },
-  {
-    title: 'Упаковка и охлаждение',
-    text: 'Предохлаждение, контролируемое хранение и упаковка по международным стандартам для сохранения свежести.',
-    icon: FaBoxOpen,
-    stats: '2-4°C хранение',
-    media: '/lottie/packaging.lottie', // путь к .lottie файлу
-    mediaType: 'lottie',
-  },
+  }
+
 ];
 
 const MafRodaProcess: React.FC = () => {
@@ -127,11 +122,6 @@ const MafRodaProcess: React.FC = () => {
                   </div>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
-                  {step.stats && (
-                    <div className="maf-step-stats">
-                      <span>{step.stats}</span>
-                    </div>
-                  )}
                 </div>
                 
                 <div className="maf-step-media">

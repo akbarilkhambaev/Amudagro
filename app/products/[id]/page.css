@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  background: white;
+  background: var(--soft-green);
   border-radius: 20px;
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
@@ -160,7 +160,7 @@
 }
 
 .specs-table tbody tr:nth-child(even) {
-  background: #ffffff;
+  background: #f0f7f4;
 }
 
 .specs-table tbody tr:hover {

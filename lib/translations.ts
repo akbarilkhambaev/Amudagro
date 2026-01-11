@@ -12,8 +12,8 @@ export const translations = {
     },
     home: {
       hero: {
-        title: 'AMUDAGRO — Premium Fruits from Uzbekistan to the World',
-        subtitle: 'Мы выращиваем высококачественные абрикосы, нектарины и персики в современных интенсивных садах Хорезма.',
+        title: 'AMUDAGRO — Сочетание вкуса и инноваций',
+        subtitle: 'Мы выращиваем высококачественные абрикосы и нектарины в современных интенсивных садах Узбекистана.',
         description: 'Наша продукция соответствует международным стандартам',
         tagline: 'Свежесть. Качество. Надёжность.',
         cta: 'Связаться с нами',
@@ -149,6 +149,7 @@ export const translations = {
       form: {
         name: 'Имя',
         email: 'Email',
+        phone: 'Телефон',
         message: 'Сообщение',
         send: 'Отправить сообщение',
       },
@@ -172,8 +173,8 @@ export const translations = {
     },
     home: {
       hero: {
-        title: 'AMUDAGRO — Premium Fruits from Uzbekistan to the World',
-        subtitle: 'We grow high-quality apricots, nectarines and peaches in modern intensive orchards of Khorezm.',
+        title: 'AMUDAGRO — Where taste meets innovation',
+        subtitle: 'We grow high-quality apricots and nectarines in modern intensive orchards of Uzbekistan.',
         description: 'Our products meet international standards',
         tagline: 'Freshness. Quality. Reliability.',
         cta: 'Contact Us',
@@ -309,6 +310,7 @@ export const translations = {
       form: {
         name: 'Name',
         email: 'Email',
+        phone: 'Phone',
         message: 'Message',
         send: 'Send Message',
       },
@@ -333,7 +335,7 @@ export const translations = {
     home: {
       hero: {
         title: 'AMUDAGRO — O\'zbekistondan dunyoga premium mevalar',
-        subtitle: 'Biz Xorazmning zamonaviy intensiv bog\'larida yuqori sifatli o\'rik, nektarin va shaftoli yetishtiramiz.',
+        subtitle: 'Biz O\'zbekistonning zamonaviy intensiv bog\'larida yuqori sifatli o\'rik va nektarin yetishtiramiz.',
         description: 'Bizning mahsulotlarimiz xalqaro standartlarga javob beradi',
         tagline: 'Yangilik. Sifat. Ishonchlilik.',
         cta: 'Biz bilan bog\'laning',
@@ -469,6 +471,7 @@ export const translations = {
       form: {
         name: 'Ism',
         email: 'Email',
+        phone: 'Telefon',
         message: 'Xabar',
         send: 'Xabar yuborish',
       },

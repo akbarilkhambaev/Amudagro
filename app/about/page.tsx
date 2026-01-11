@@ -11,9 +11,9 @@ export default function About() {
     ru: {
       heroLabel: 'О компании',
       heroTitle: 'AMUDAGRO',
-      heroSubtitle: 'Высокотехнологичный агрохолдинг',
+      heroSubtitle: 'современный агрохолдинг',
       aboutTitle: 'О компании',
-      aboutText: 'AMUDAGRO — высокотехнологичный агрохолдинг, специализирующийся на промышленном выращивании косточковых фруктов высокого-класса для внутреннего и международного рынков. Мы объединяем природный потенциал Узбекистана с лучшими мировыми практиками, создавая продукт, отвечающий самым строгим стандартам качества.',
+      aboutText: 'AMUDAGRO — современный агрохолдинг, специализирующийся на промышленном выращивании косточковых фруктов высокого-класса для внутреннего и международного рынков. Мы объединяем природный потенциал Узбекистана с лучшими мировыми практиками, создавая продукт, отвечающий самым строгим стандартам качества.',
       missionTitle: 'Миссия',
       missionText: 'Наша цель — обеспечение потребителей натуральными, свежими и безопасными фруктами. В основе нашей стратегии лежат три принципа: использование инновационных технологий, опора на международный экспертный опыт и приверженность принципам экологической ответственности.',
       productionTitle: 'Производственная база и технологии',
@@ -23,11 +23,11 @@ export default function About() {
       irrigationTitle: 'Интеллектуальный полив',
       irrigationText: 'Ирригационная система спроектирована и внедрена компанией NETAFIM, мировым лидером в области капельного орошения.',
       varietiesTitle: 'Наши сорта',
-      varietiesText: 'Мы выращиваем более 10 селекционных сортов нектаринов и абрикосов.',
+      varietiesText: 'Мы выращиваем более 10 селекционных сортов нектаринов и абрикосов. Наша продукция характеризуется:',
       varietiesItems: [
-        'высокими органолептическими свойствами и безупречным вкусом',
-        'эталонным товарным видом для ритейла',
-        'превосходной транспортабельностью и длительным сроком хранения',
+        'высокими органолептическими свойствами и безупречным вкусом;',
+        'эталонным товарным видом для ритейла;',
+        'превосходной транспортабельностью и длительным сроком хранения, что позволяет осуществлять экспортные поставки на дальние расстояния без потери качества.',
       ],
       teamTitle: 'Команда',
       teamText: 'Агрономическая служба AMUDAGRO состоит из специалистов с глубокой теоретической базой и многолетним практическим стажем. Они регулярно принимают участие в профильных семинарах и конференциях для повышения квалификации. Научное и практическое сопровождение проекта осуществляет международный консультант из Франции — Жан-Марк Одергон, обладающий обширным опытом в области промышленного садоводства. Применение удобрений и средств защиты растений строго регламентировано и осуществляется в полном соответствии с мировыми стандартами безопасности.',
@@ -55,11 +55,11 @@ export default function About() {
       irrigationTitle: 'Smart Irrigation',
       irrigationText: 'The irrigation system is designed and implemented by NETAFIM, a world leader in drip irrigation.',
       varietiesTitle: 'Our Varieties',
-      varietiesText: 'We grow more than 10 breeding varieties of nectarines and apricots.',
+      varietiesText: 'We grow more than 10 breeding varieties of nectarines and apricots. Our products are characterized by:',
       varietiesItems: [
-        'high organoleptic properties and impeccable taste',
-        'reference appearance for retail',
-        'excellent transportability and long shelf life',
+        'high organoleptic properties and impeccable taste;',
+        'reference appearance for retail;',
+        'excellent transportability and long shelf life, which allows long-distance export deliveries without loss of quality.',
       ],
       teamTitle: 'Team',
       teamText: 'The AMUDAGRO agronomic service consists of specialists with a deep theoretical background and many years of practical experience. They regularly participate in specialized seminars and conferences to improve their qualifications. The project is scientifically and practically supported by an international consultant from France, Jean-Marc Odergon, who has extensive experience in industrial horticulture. The use of fertilizers and plant protection products is strictly regulated and carried out in full compliance with global safety standards.',
@@ -87,11 +87,11 @@ export default function About() {
       irrigationTitle: 'Intellektual sug\'orish',
       irrigationText: 'Sug\'orish tizimi NETAFIM kompaniyasi tomonidan loyihalashtirilgan va joriy etilgan.',
       varietiesTitle: 'Bizning navlar',
-      varietiesText: 'Biz 10 dan ortiq nektarin va o\'rik navlarini yetishtiramiz.',
+      varietiesText: 'Biz 10 dan ortiq nektarin va o\'rik navlarini yetishtiramiz. Bizning mahsulotlarimiz quyidagi xususiyatlarga ega:',
       varietiesItems: [
-        'yuqori organoleptik xususiyatlar va benuqson ta\'m',
-        'chakana savdo uchun etalon ko\'rinish',
-        'ajoyib tashish qobiliyati va uzoq saqlash muddati',
+        'yuqori organoleptik xususiyatlar va benuqson ta\'m;',
+        'chakana savdo uchun etalon ko\'rinish;',
+        'ajoyib tashish qobiliyati va uzoq saqlash muddati, bu sifat yo\'qotmasdan uzoq masofaga eksport yetkazib berishga imkon beradi.',
       ],
       teamTitle: 'Jamoa',
       teamText: `AMUDAGRO Agronomiya xizmati chuqur nazariy asosga ega va ko'p yillik amaliy tajribaga ega mutaxassislardan iborat. Ular muntazam ravishda malaka oshirish uchun ixtisoslashtirilgan seminar va konferentsiyalarda qatnashadilar.MUDAGRO Agronomiya xizmati chuqur nazariy asosga ega va ko'p yillik amaliy tajribaga ega mutaxassislardan iborat. Ular muntazam ravishda malaka oshirish uchun ixtisoslashtirilgan seminar va konferentsiyalarda qatnashadilar. Loyihani ilmiy va amaliy qo'llab — quvvatlash Fransiyaning xalqaro maslahatchisi Jan-Mark Odergon tomonidan amalga oshiriladi,`,
@@ -191,61 +191,33 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats Section - Light Green */}
-      <section className="light-green-section">
+      {/* Varieties Section with Image */}
+      <section className="green-section">
         <div className="container">
-          <h2 className="section-title">{t.varietiesTitle}</h2>
-          <p className="section-subtitle">{t.varietiesText}</p>
-          
-          <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-icon">
+          <div className="image-text-grid">
+            <div className="text-side">
+              <h2>{t.varietiesTitle}</h2>
+              <p>{t.varietiesText}</p>
+              
+              <div className="features-list">
+                {t.varietiesItems.map((item, index) => (
+                  <div key={index} className="feature-item">
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="image-side">
+              <div className="image-wrapper">
                 <Image
-                  src="/process/planet-earth.png"
-                  alt="Земельный фонд"
-                  width={80}
-                  height={80}
-                  className="stat-icon-image"
+                  src="/sorts/sort.avif"
+                  alt="Our Varieties"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="section-image"
                 />
               </div>
-              <div className="stat-value">{t.stats.area}</div>
-              <div className="stat-label">{t.stats.areaLabel}</div>
             </div>
-            <div className="stat-item">
-              <div className="stat-icon">
-                <Image
-                  src="/process/peach.png"
-                  alt="Сорта"
-                  width={80}
-                  height={80}
-                  className="stat-icon-image"
-                />
-              </div>
-              <div className="stat-value">{t.stats.varieties}</div>
-              <div className="stat-label">{t.stats.varietiesLabel}</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-icon">
-                <Image
-                  src="/process/calendar.png"
-                  alt="Год основания"
-                  width={80}
-                  height={80}
-                  className="stat-icon-image"
-                />
-              </div>
-              <div className="stat-value">{t.stats.year}</div>
-              <div className="stat-label">{t.stats.yearLabel}</div>
-            </div>
-          </div>
-          
-          <div className="features-list">
-            {t.varietiesItems.map((item, index) => (
-              <div key={index} className="feature-item">
-                <span className="feature-check">✓</span>
-                <span>{item}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>

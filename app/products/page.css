@@ -99,15 +99,15 @@
 
 @media (min-width: 1024px) {
   .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
 }
 
 /* Product Card */
 .product-card {
   display: block;
-  background: white;
+  background: var(--soft-green);
   border-radius: 16px;
   border: 1px solid var(--border-color);
   overflow: hidden;
@@ -160,7 +160,7 @@
 }
 
 .learn-more-btn {
-  background: white;
+  background: var(--soft-green);
   color: var(--primary-green);
   padding: 0.75rem 1.5rem;
   border-radius: 50px;

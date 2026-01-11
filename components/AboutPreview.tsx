@@ -61,7 +61,7 @@ export default function AboutPreview() {
             <Link href="/about" className="btn btn-outline-light">
               {t.nav.about}
             </Link>
-            <div className="about-preview-stats">
+            {/* <div className="about-preview-stats">
               <div className="about-stat">
                 <div className="about-stat-number">1000+</div>
                 <div className="about-stat-label">Гектаров садов</div>
@@ -78,7 +78,7 @@ export default function AboutPreview() {
                 <div className="about-stat-number">20+</div>
                 <div className="about-stat-label">Стран экспорта</div>
               </div>
-            </div>
+            </div> */}
           </div>
           
           <div className="about-slider">

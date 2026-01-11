@@ -40,6 +40,11 @@ interface Product {
       en: string
       uz: string
     }
+    flesh?: {
+      ru: string
+      en: string
+      uz: string
+    }
     caliber: string
     sugar: string
   }
@@ -78,9 +83,14 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Красно-желтая',
-        en: 'Red-Yellow',
-        uz: 'Qizil-sariq',
+        ru: 'Красный (90%)',
+        en: 'Red (90%)',
+        uz: 'Qizil (90%)',
+      },
+      flesh: {
+        ru: 'Желтая',
+        en: 'Yellow',
+        uz: 'Sariq',
       },
       caliber: '65-75 мм',
       sugar: '14° Brix',
@@ -121,6 +131,11 @@ const products: Product[] = [
         en: 'Bright red',
         uz: 'Yorqin qizil',
       },
+      flesh: {
+        ru: 'Желтая',
+        en: 'Yellow',
+        uz: 'Sariq',
+      },
       caliber: '65-75 мм',
       sugar: '16° Brix',
     },
@@ -159,6 +174,11 @@ const products: Product[] = [
         ru: 'Желто-красная',
         en: 'Yellow-red',
         uz: 'Sariq-qizil',
+      },
+      flesh: {
+        ru: 'Желтая',
+        en: 'Yellow',
+        uz: 'Sariq',
       },
       caliber: '65-75 мм',
       sugar: '15° Brix',
@@ -199,6 +219,11 @@ const products: Product[] = [
         en: 'Dark red',
         uz: 'To\'q qizil',
       },
+      flesh: {
+        ru: 'Желтая',
+        en: 'Yellow',
+        uz: 'Sariq',
+      },
       caliber: '65-75 мм',
       sugar: '15° Brix',
     },
@@ -238,6 +263,11 @@ const products: Product[] = [
         en: 'Orange',
         uz: 'To\'q sariq',
       },
+      flesh: {
+        ru: 'Белая',
+        en: 'White',
+        uz: 'Oq',
+      },
       caliber: '65-75 мм',
       sugar: '14° Brix',
     },
@@ -276,6 +306,11 @@ const products: Product[] = [
         ru: 'Золотисто-оранжевая',
         en: 'Golden orange',
         uz: 'Oltin-to\'q sariq',
+      },
+      flesh: {
+        ru: 'Белая',
+        en: 'White',
+        uz: 'Oq',
       },
       caliber: '65-75 мм',
       sugar: '16° Brix',
@@ -487,6 +522,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       en: 'Color',
       uz: 'Rangi',
     },
+    flesh: {
+      ru: 'Мякоть',
+      en: 'Flesh',
+      uz: 'Go\'shti',
+    },
     caliber: {
       ru: 'Калибр',
       en: 'Caliber',
@@ -590,6 +630,12 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     <td className="spec-label">{labels.color[language]}</td>
                     <td className="spec-value">{product.specifications.color[language]}</td>
                   </tr>
+                  {product.specifications.flesh && (
+                    <tr>
+                      <td className="spec-label">{labels.flesh[language]}</td>
+                      <td className="spec-value">{product.specifications.flesh[language]}</td>
+                    </tr>
+                  )}
                   <tr>
                     <td className="spec-label">{labels.caliber[language]}</td>
                     <td className="spec-value">{product.specifications.caliber}</td>

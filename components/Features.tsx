@@ -4,98 +4,210 @@ import Link from 'next/link'
 import { useLanguage } from '@/contexts/LanguageContext'
 import './Features.css'
 
-const peachSorts = [
+const productsData = [
   {
-    id: 1,
-    name: 'Big Top',
-    image: '/sorts/beg-top.avif',
-    description: 'Крупноплодный сорт персика с насыщенным сладким вкусом и ярким ароматом. Идеален для свежего потребления.',
+    id: 'Kinolea',
+    category: 'nectarine',
+    name: {
+      ru: 'Кинолеа',
+      en: 'Kinolea',
+      uz: 'Kinolea',
+    },
+    image: '/nectarins/kinolea.avif',
+    description: {
+      ru: 'Ранний сорт с ярким красным румянцем и плотной желтой мякотью',
+      en: 'Early variety with bright red blush and firm yellow flesh',
+      uz: 'Yorqin qizil rangdagi va zich sariq go\'shtli erta nav',
+    },
     characteristics: {
-      weight: '200-280 г',
-      harvest: 'Июль-Август',
-      taste: 'Сладкий',
-      color: 'Жёлто-красный'
+      caliber: '65-75 мм',
+      season: {
+        ru: '10-15 Июнь',
+        en: '10-15 June',
+        uz: '10-15 Iyun',
+      },
+      sugar: '16° Brix',
+      color: {
+        ru: 'Ярко-красный',
+        en: 'Bright red',
+        uz: 'Yorqin qizil',
+      }
     }
   },
   {
-    id: 2,
-    name: 'Кларисс',
-    image: '/sorts/klariss.avif',
-    description: 'Ранний сорт с нежной мякотью и приятным ароматом. Отличается высокой урожайностью и устойчивостью.',
+    id: 'Honey Top',
+    category: 'nectarine',
+    name: {
+      ru: 'Honey Top',
+      en: 'Honey Top',
+      uz: 'Honey Top',
+    },
+    image: '/nectarins/honey_top.avif',
+    description: {
+      ru: 'Среднеспелый сорт с отличными вкусовыми качествами и желтой мякотью',
+      en: 'Mid-season variety with excellent taste qualities and yellow flesh',
+      uz: 'A\'lo ta\'m sifatlariga ega sariq go\'shtli o\'rta pishar nav',
+    },
     characteristics: {
-      weight: '150-200 г',
-      harvest: 'Июнь-Июль',
-      taste: 'Сладко-кислый',
-      color: 'Жёлтый'
+      caliber: '65-75 мм',
+      season: {
+        ru: '25-30 Июнь',
+        en: '25-30 June',
+        uz: '25-30 Iyun',
+      },
+      sugar: '15° Brix',
+      color: {
+        ru: 'Желто-красный',
+        en: 'Yellow-red',
+        uz: 'Sariq-qizil',
+      }
     }
   },
   {
-    id: 3,
-    name: 'Конкети',
-    image: '/sorts/konqueti.avif',
-    description: 'Среднеспелый сорт с плотной мякотью, подходящий для транспортировки и длительного хранения.',
+    id: 'Rubissia',
+    category: 'apricot',
+    name: {
+      ru: 'Рубиссия',
+      en: 'Rubissia',
+      uz: 'Rubissia',
+    },
+    image: '/appricots/rubissia.avif',
+    description: {
+      ru: 'Французский сорт с высоким содержанием сахара и красным окрасом',
+      en: 'French variety with high sugar content and red color',
+      uz: 'Yuqori shakar miqdoriga ega qizil rangdagi fransuz navi',
+    },
     characteristics: {
-      weight: '180-220 г',
-      harvest: 'Август',
-      taste: 'Сладкий',
-      color: 'Оранжево-красный'
+      caliber: '40-50 мм',
+      season: {
+        ru: '25-30 Май',
+        en: '25-30 May',
+        uz: '25-30 May',
+      },
+      sugar: '15° Brix',
+      color: {
+        ru: 'Красный',
+        en: 'Red',
+        uz: 'Qizil',
+      }
     }
   },
   {
-    id: 4,
-    name: 'Сорт премиум',
-    image: '/sorts/sort.avif',
-    description: 'Элитный сорт персика с исключительными вкусовыми качествами. Выращивается по специальной технологии.',
+    id: 'Madrigal',
+    category: 'apricot',
+    name: {
+      ru: 'Мадригал',
+      en: 'Madrigal',
+      uz: 'Madrigal',
+    },
+    image: '/appricots/madrigal.avif',
+    description: {
+      ru: 'Премиальный абрикос с глубоким оранжевым цветом и высоким уровнем сахара',
+      en: 'Premium apricot with deep orange color and high sugar level',
+      uz: 'Chuqur to\'q sariq rangdagi va yuqori shakar darajasiga ega premium o\'rik',
+    },
     characteristics: {
-      weight: '220-300 г',
-      harvest: 'Июль-Август',
-      taste: 'Медовый',
-      color: 'Красно-жёлтый'
+      caliber: '40-50 мм',
+      season: {
+        ru: '10-20 Июль',
+        en: '10-20 July',
+        uz: '10-20 Iyul',
+      },
+      sugar: '19° Brix',
+      color: {
+        ru: 'Глубокий оранжевый',
+        en: 'Deep orange',
+        uz: 'Chuqur to\'q sariq',
+      }
     }
   }
 ]
 
 export default function Features() {
-  const { t } = useLanguage()
+  const { language } = useLanguage()
+
+  const labels = {
+    sectionLabel: {
+      ru: 'Наша продукция',
+      en: 'Our Products',
+      uz: 'Bizning mahsulotlarimiz',
+    },
+    title: {
+      ru: 'Сорта абрикосов и нектаринов',
+      en: 'Apricot and Nectarine Varieties',
+      uz: 'O\'rik va nektarin navlari',
+    },
+    subtitle: {
+      ru: 'Мы выращиваем лучшие сорта абрикосов и нектаринов с использованием современных технологий',
+      en: 'We grow the best varieties of apricots and nectarines using modern technologies',
+      uz: 'Biz zamonaviy texnologiyalar yordamida eng yaxshi o\'rik va nektarin navlarini yetishtirамiz',
+    },
+    caliber: {
+      ru: 'Калибр',
+      en: 'Caliber',
+      uz: 'Kalibr',
+    },
+    season: {
+      ru: 'Сезон',
+      en: 'Season',
+      uz: 'Mavsum',
+    },
+    sugar: {
+      ru: 'Сахар',
+      en: 'Sugar',
+      uz: 'Shakar',
+    },
+    color: {
+      ru: 'Цвет',
+      en: 'Color',
+      uz: 'Rang',
+    },
+    learnMore: {
+      ru: 'Подробнее',
+      en: 'Learn more',
+      uz: 'Batafsil',
+    },
+  }
 
   return (
     <section className="features section">
       <div className="container">
         <div className="features-header">
-          <span className="section-label">Наша продукция</span>
-          <h2 className="section-title">Сорта персиков и нектаринов</h2>
+          <span className="section-label">{labels.sectionLabel[language]}</span>
+          <h2 className="section-title">{labels.title[language]}</h2>
           <p className="section-subtitle">
-            Мы выращиваем лучшие сорта персиков и нектаринов с использованием современных технологий
+            {labels.subtitle[language]}
           </p>
         </div>
         <div className="products-grid">
-          {peachSorts.map((sort) => (
-            <div key={sort.id} className="product-card">
+          {productsData.map((product) => (
+            <div key={product.id} className="product-card">
               <div className="product-image">
-                <img src={sort.image} alt={sort.name} />
+                <img src={product.image} alt={product.name[language]} />
               </div>
               <div className="product-content">
-                <h3 className="product-name">{sort.name}</h3>
+                <h3 className="product-name">{product.name[language]}</h3>
+                <p className="product-description">{product.description[language]}</p>
                 <div className="product-characteristics">
                   <div className="characteristic">
-                    <span className="characteristic-label">Вес</span>
-                    <span className="characteristic-value">{sort.characteristics.weight}</span>
+                    <span className="characteristic-label">{labels.caliber[language]}</span>
+                    <span className="characteristic-value">{product.characteristics.caliber}</span>
                   </div>
                   <div className="characteristic">
-                    <span className="characteristic-label">Сбор</span>
-                    <span className="characteristic-value">{sort.characteristics.harvest}</span>
+                    <span className="characteristic-label">{labels.season[language]}</span>
+                    <span className="characteristic-value">{product.characteristics.season[language]}</span>
                   </div>
                   <div className="characteristic">
-                    <span className="characteristic-label">Вкус</span>
-                    <span className="characteristic-value">{sort.characteristics.taste}</span>
+                    <span className="characteristic-label">{labels.sugar[language]}</span>
+                    <span className="characteristic-value">{product.characteristics.sugar}</span>
                   </div>
                   <div className="characteristic">
-                    <span className="characteristic-label">Цвет</span>
-                    <span className="characteristic-value">{sort.characteristics.color}</span>
+                    <span className="characteristic-label">{labels.color[language]}</span>
+                    <span className="characteristic-value">{product.characteristics.color[language]}</span>
                   </div>
                 </div>
-                <Link href="/products" className="product-btn">
-                  Подробнее
+                <Link href={`/products/${product.id}`} className="product-btn">
+                  {labels.learnMore[language]}
                 </Link>
               </div>
             </div>

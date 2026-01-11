@@ -83,7 +83,7 @@
 }
 
 .export-card {
-  background: white;
+  background: var(--soft-green);
   padding: 2.5rem;
   border-radius: 20px;
   border: 1px solid var(--border-color);
@@ -270,7 +270,7 @@
 }
 
 .standards-section {
-  background: white;
+  background: var(--soft-green);
   padding: 3rem;
   border-radius: 20px;
   text-align: center;

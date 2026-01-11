@@ -78,12 +78,12 @@
 }
 
 .cta .btn-white {
-  background: white;
+  background: var(--soft-green);
   color: var(--primary-green);
 }
 
 .cta .btn-white:hover {
-  background: #f0f0f0;
+  background: #e0f0e8;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
