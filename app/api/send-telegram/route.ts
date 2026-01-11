@@ -10,15 +10,15 @@ export async function POST(request: Request) {
 
     // Формируем сообщение
     const telegramMessage = `
-🔔 *Новая заявка с сайта AMUDAGRO*
+       🔔 *Новая заявка с сайта AMUDAGRO*
 
-👤 *Имя:* ${name}
-📧 *Email:* ${email}
-� *Телефон:* ${phone}
-�💬 *Сообщение:*
-${message}
+       👤 *Имя:* ${name}
+       📧 *Email:* ${email}
+       📞 *Телефон:* ${phone}
+       📧 *Сообщение:*
+       ${message}
 
-⏰ ${new Date().toLocaleString('ru-RU')}
+⏰ ${new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Tashkent' })}
     `.trim()
 
     // Отправляем в Telegram
