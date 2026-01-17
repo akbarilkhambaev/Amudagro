@@ -79,6 +79,22 @@ export default function Gallery() {
       height: 360,
       title: { ru: 'Качественные абрикосы', en: 'Quality apricots', uz: 'Sifatli o\'riklar' }
     },
+        { 
+      id: 7, 
+      category: 'orchard', 
+      type: 'image', 
+      src: '/gallery/5.jpg',
+      height: 420,
+      title: { ru: 'Современные технологии', en: 'Modern technologies', uz: 'Zamonaviy texnologiyalar' }
+    },
+        { 
+      id: 8, 
+      category: 'fruits', 
+      type: 'image', 
+      src: '/gallery/3.jpg',
+      height: 450,
+      title: { ru: 'Свежие фрукты', en: 'Fresh fruits', uz: 'Yangi mevalar' }
+    },
   ]
 
   const filteredItems = activeCategory === 'all' 
