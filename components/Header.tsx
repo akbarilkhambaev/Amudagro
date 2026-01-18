@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import './Header.css'
@@ -14,7 +15,13 @@ export default function Header() {
       <div className="container">
         <div className="header-content">
           <Link href="/" className="logo">
-            <span className="logo-text">AMUDAGRO</span>
+            <Image 
+              src="/logo/logo_amud.png" 
+              alt="AMUDAGRO" 
+              width={259} 
+              height={51}
+              priority
+            />
           </Link>
           
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>

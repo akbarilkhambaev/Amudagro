@@ -9,7 +9,7 @@ const productsData = [
     id: 'Kinolea',
     category: 'nectarine',
     name: {
-      ru: 'Кинолеа',
+      ru: 'Kinolea',
       en: 'Kinolea',
       uz: 'Kinolea',
     },
@@ -67,7 +67,7 @@ const productsData = [
     id: 'Rubissia',
     category: 'apricot',
     name: {
-      ru: 'Рубиссия',
+      ru: 'Rubissia',
       en: 'Rubissia',
       uz: 'Rubissia',
     },
@@ -96,7 +96,7 @@ const productsData = [
     id: 'Madrigal',
     category: 'apricot',
     name: {
-      ru: 'Мадригал',
+      ru: 'Madrigal',
       en: 'Madrigal',
       uz: 'Madrigal',
     },

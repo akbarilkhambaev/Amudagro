@@ -65,14 +65,14 @@
 
 .product-image {
   position: relative;
-  height: 180px;
+  height: 383px;
   overflow: hidden;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 @media (min-width: 768px) {
   .product-image {
-    height: 220px;
+    height: 383;
   }
 }
 

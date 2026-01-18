@@ -53,7 +53,7 @@ const products: Product[] = [
     category: 'nectarine',
     image: '/nectarins/kinolea.avif',
     name: {
-      ru: 'Кинолеа',
+      ru: 'Kinolea',
       en: 'Kinolea',
       uz: 'Kinolea',
     },
@@ -89,7 +89,7 @@ const products: Product[] = [
     category: 'nectarine',
     image: '/nectarins/luciana.avif',
     name: {
-      ru: 'Лусиана',
+      ru: 'Luciana',
       en: 'Luciana',
       uz: 'Luciana',
     },
@@ -107,7 +107,7 @@ const products: Product[] = [
     category: 'nectarine',
     image: '/nectarins/clarris.avif',
     name: {
-      ru: 'Кларисс',
+      ru: 'Clariss',
       en: 'Clariss',
       uz: 'Klariss',
     },
@@ -125,9 +125,9 @@ const products: Product[] = [
     category: 'nectarine',
     image: '/nectarins/conquete.avif',
     name: {
-      ru: 'Конкетти',
+      ru: 'Conquete',
       en: 'Conquete',
-      uz: 'Konketa',
+      uz: 'Conquete',
     },
     shortDescription: {
       ru: 'Ароматный нектарин с золотисто-оранжевым окрасом и белой мякотью',
@@ -144,7 +144,7 @@ const products: Product[] = [
     category: 'apricot',
     image: '/appricots/rubissia.avif',
     name: {
-      ru: 'Рубиссия',
+      ru: 'Rubissia',
       en: 'Rubissia',
       uz: 'Rubissia',
     },
@@ -162,7 +162,7 @@ const products: Product[] = [
     category: 'apricot',
     image: '/appricots/bolero.avif',
     name: {
-      ru: 'Болеро',
+      ru: 'Bolero',
       en: 'Bolero',
       uz: 'Bolero',
     },
@@ -180,7 +180,7 @@ const products: Product[] = [
     category: 'apricot',
     image: '/appricots/milord.avif',
     name: {
-      ru: 'Милорд',
+      ru: 'Milord',
       en: 'Milord',
       uz: 'Milord',
     },
@@ -198,7 +198,7 @@ const products: Product[] = [
     category: 'apricot',
     image: '/appricots/madrigal.avif',
     name: {
-      ru: 'Мадригал',
+      ru: 'Madrigal',
       en: 'Madrigal',
       uz: 'Madrigal',
     },
