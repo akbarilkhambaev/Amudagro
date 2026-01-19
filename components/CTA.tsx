@@ -10,7 +10,7 @@ export default function CTA() {
     <section className="cta section">
       <div className="container">
         <div className="cta-content">
-          <span className="section-label">Приглашаем к сотрудничеству</span>
+          <span className="section-label">{t.home.hero.label}</span>
           <h2>{t.home.hero.title}</h2>
           <p>{t.home.hero.subtitle}</p>
           <div className="cta-buttons">
@@ -18,10 +18,10 @@ export default function CTA() {
               {t.home.hero.cta}
             </Link>
             <Link href="/products" className="btn btn-outline-white">
-              Наши продукты
+              {t.home.hero.products}
             </Link>
           </div>
-          <div className="cta-contact-info">
+          {/* <div className="cta-contact-info">
             <div className="cta-contact-item">
               <div className="cta-contact-icon">
                 <FaPhone />
@@ -49,7 +49,7 @@ export default function CTA() {
                 <div className="cta-contact-value">Узбекистан</div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

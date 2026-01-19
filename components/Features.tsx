@@ -183,7 +183,9 @@ export default function Features() {
           {productsData.map((product) => (
             <div key={product.id} className="product-card">
               <div className="product-image">
-                <img src={product.image} alt={product.name[language]} />
+                <div className="product-image-inner">
+                  <img src={product.image} alt={product.name[language]} />
+                </div>
               </div>
               <div className="product-content">
                 <h3 className="product-name">{product.name[language]}</h3>

@@ -25,6 +25,16 @@ export default function Header() {
           </Link>
           
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
+            <button 
+              className="nav-close" 
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Закрыть меню"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
             <Link href="/" onClick={() => setIsMenuOpen(false)}>
               {t.nav.home}
             </Link>
@@ -47,13 +57,13 @@ export default function Header() {
 
           <div className="header-right">
             <div className="language-switcher">
-              <button
+              {/* <button
                 className={`lang-btn ${language === 'uz' ? 'active' : ''}`}
                 onClick={() => setLanguage('uz')}
                 title="O'zbekcha"
               >
                 UZ
-              </button>
+              </button> */}
               <button
                 className={`lang-btn ${language === 'ru' ? 'active' : ''}`}
                 onClick={() => setLanguage('ru')}

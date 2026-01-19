@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-section">
-            <h4>Информация</h4>
+            <h4>{t.footer.information}</h4>
             <ul>
               <li><Link href="/gallery">{t.nav.gallery} <FaArrowRight style={{ fontSize: '0.7rem', marginLeft: 'auto' }} /></Link></li>
               <li><Link href="/contacts">{t.nav.contacts} <FaArrowRight style={{ fontSize: '0.7rem', marginLeft: 'auto' }} /></Link></li>
@@ -72,8 +72,8 @@ export default function Footer() {
           <div className="footer-bottom-content">
             <p>&copy; {currentYear} AMUDAGRO. {t.footer.rights}.</p>
             <div className="footer-bottom-links">
-              <Link href="/privacy">Политика конфиденциальности</Link>
-              <Link href="/terms">Условия использования</Link>
+              <Link href="/privacy">{t.footer.privacy}</Link>
+              <Link href="/terms">{t.footer.terms}</Link>
             </div>
           </div>
         </div>

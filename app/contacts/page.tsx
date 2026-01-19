@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaTelegram, FaInstagram } from 'react-icons/fa'
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaWhatsapp, FaTelegram, FaInstagram, FaComment } from 'react-icons/fa'
 import './page.css'
 
 export default function Contacts() {
@@ -76,7 +76,7 @@ export default function Contacts() {
     <div className="page-container">
       <section className="page-hero">
         <div className="container">
-          <span className="page-hero-label">Связаться с нами</span>
+          <span className="page-hero-label">{t.contacts.label}</span>
           <h1>{t.contacts.title}</h1>
           <p>{t.contacts.subtitle}</p>
         </div>
@@ -96,16 +96,16 @@ export default function Contacts() {
                   <p>{t.contacts.address.value}</p>
                 </div>
               </div>
-              <div className="info-item">
+              <a href="tel:+998909358100" className="info-item info-item-link">
                 <div className="info-icon">
                   <FaPhone />
                 </div>
                 <div className="info-content">
                   <h3>{t.contacts.phone.title}</h3>
-                  <p>+998 XX XXX XX XX</p>
+                  <p>+998 90 935 81 00</p>
                 </div>
-              </div>
-              <div className="info-item">
+              </a>
+              <a href="mailto:info@amudagro.uz" className="info-item info-item-link">
                 <div className="info-icon">
                   <FaEnvelope />
                 </div>
@@ -113,8 +113,8 @@ export default function Contacts() {
                   <h3>{t.contacts.email.title}</h3>
                   <p>info@amudagro.uz</p>
                 </div>
-              </div>
-              <div className="info-item">
+              </a>
+              <a href="https://wa.me/qr/H4XTW66UIB7XJ1" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
                 <div className="info-icon whatsapp">
                   <FaWhatsapp />
                 </div>
@@ -122,17 +122,17 @@ export default function Contacts() {
                   <h3>{t.contacts.whatsapp}</h3>
                   <p>+998 XX XXX XX XX</p>
                 </div>
-              </div>
-              <div className="info-item">
+              </a>
+              <a href="https://t.me/msabirov" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
                 <div className="info-icon telegram">
                   <FaTelegram />
                 </div>
                 <div className="info-content">
                   <h3>{t.contacts.telegram}</h3>
-                  <p>@amudagro</p>
+                  <p>@msabirov</p>
                 </div>
-              </div>
-              <div className="info-item">
+              </a>
+              <a href="https://instagram.com/amudagro" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
                 <div className="info-icon instagram">
                   <FaInstagram />
                 </div>
@@ -140,7 +140,16 @@ export default function Contacts() {
                   <h3>Instagram</h3>
                   <p>@amudagro</p>
                 </div>
-              </div>
+              </a>
+              <a href="https://max.ru/u/f9LHodD0cOJG7LyWWi_CPVHdYakpPnMud_fBbzKg2BEV9OX20Dwx_Rj-ONc" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
+                <div className="info-icon max">
+                  <FaComment />
+                </div>
+                <div className="info-content">
+                  <h3>MAX</h3>
+                  <p>@amudagro</p>
+                </div>
+              </a>
             </div>
 
             <div className="contact-form-wrapper">
@@ -163,7 +172,7 @@ export default function Contacts() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    placeholder="Ваше имя"
+                    placeholder={t.contacts.form.namePlaceholder}
                   />
                 </div>
                 <div className="form-group">
@@ -176,7 +185,7 @@ export default function Contacts() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    placeholder="email@example.com"
+                    placeholder={t.contacts.form.emailPlaceholder}
                   />
                 </div>
                 <div className="form-group">
@@ -189,7 +198,7 @@ export default function Contacts() {
                     onChange={handleChange}
                     required
                     disabled={isSubmitting}
-                    placeholder="+998 XX XXX XX XX"
+                    placeholder={t.contacts.form.phonePlaceholder}
                   />
                 </div>
                 <div className="form-group">
@@ -202,7 +211,7 @@ export default function Contacts() {
                     rows={6}
                     required
                     disabled={isSubmitting}
-                    placeholder="Ваше сообщение..."
+                    placeholder={t.contacts.form.messagePlaceholder}
                   ></textarea>
                 </div>
                 <button type="submit" className="btn" disabled={isSubmitting}>
@@ -215,11 +224,20 @@ export default function Contacts() {
             </div>
           </div>
 
-          <div className="map-placeholder">
-            <h3>Наше местоположение</h3>
-            <p>Хорезмская область, Республика Узбекистан</p>
-            <div className="map-frame">
-              <p>Здесь будет карта</p>
+          <div className="map-section">
+            <h3>{t.contacts.location || 'Наше местоположение'}</h3>
+            <p>{t.contacts.address.value}</p>
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2986.8756245999393!2d60.6703234!3d41.5286347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41dfcf43edd9ba57%3A0xf225fc9675f3905f!2sAmudagro!5e0!3m2!1sru!2s!4v1768844000026!5m2!1sru!2s"
+                width="100%"
+                height="450"
+                style={{ border: 0, borderRadius: '16px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="AMUDAGRO Location"
+              ></iframe>
             </div>
           </div>
         </div>

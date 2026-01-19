@@ -286,6 +286,9 @@ export default function Products() {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="product-image"
+          style={{ objectFit: 'cover' }}
+          quality={90}
+          loading="lazy"
         />
         <div className="product-overlay">
           <span className="learn-more-btn">{labels.learnMore[language]}</span>

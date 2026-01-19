@@ -18,6 +18,14 @@
   color: var(--primary-green);
 }
 
+.features-header .section-title {
+  color: var(--text-dark) !important;
+}
+
+.features-header .section-subtitle {
+  color: var(--text-gray) !important;
+}
+
 /* Products Grid */
 .products-grid {
   display: grid;
@@ -65,15 +73,18 @@
 
 .product-image {
   position: relative;
-  height: 383px;
+  width: 100%;
+  padding-bottom: 100%; /* Создаёт квадратное соотношение 1:1 */
   overflow: hidden;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-@media (min-width: 768px) {
-  .product-image {
-    height: 383;
-  }
+.product-image-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .product-image img {

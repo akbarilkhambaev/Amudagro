@@ -89,6 +89,17 @@
   transition: all 0.3s ease;
 }
 
+.info-item-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.info-item-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 104, 56, 0.15);
+}
+
 .info-item:hover {
   border-color: var(--primary-green);
   box-shadow: 0 4px 20px rgba(0, 104, 56, 0.1);
@@ -120,6 +131,11 @@
 .info-icon.instagram {
   background: rgba(228, 64, 95, 0.1);
   color: #e4405f;
+}
+
+.info-icon.max {
+  background: rgba(0, 95, 249, 0.1);
+  color: #005ff9;
 }
 
 .info-content {
@@ -252,37 +268,40 @@
   cursor: not-allowed;
 }
 
-.map-placeholder {
+.map-section {
   margin-top: 4rem;
   text-align: center;
 }
 
-.map-placeholder h3 {
-  font-size: 1.5rem;
+.map-section h3 {
+  font-size: 1.75rem;
   margin-bottom: 1rem;
   color: var(--primary-green);
   font-weight: 700;
 }
 
-.map-placeholder p {
+.map-section p {
   color: var(--text-gray);
-  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
-.map-frame {
-  margin-top: 2rem;
-  height: 400px;
-  background: var(--bg-light);
+.map-container {
+  width: 100%;
   border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--border-color);
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-.map-frame p {
-  color: var(--text-light);
-  font-style: italic;
+.map-container:hover {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.map-container iframe {
+  display: block;
+  width: 100%;
 }
 
 @media (max-width: 968px) {

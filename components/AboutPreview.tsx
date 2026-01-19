@@ -54,8 +54,8 @@ export default function AboutPreview() {
       <div className="container">
         <div className="about-preview-content">
           <div className="about-preview-text">
-            <span className="section-label">О компании</span>
-            <h2 className="section-title">{t.about.subtitle}</h2>
+            <span className="section-label">{t.about.label}</span>
+            {/* <h2 className="section-title">{t.about.subtitle}</h2> */}
             <p>{t.about.description}</p>
             <p>{t.about.mission.text}</p>
             <Link href="/about" className="btn btn-outline-light">
@@ -113,7 +113,7 @@ export default function AboutPreview() {
                 </div>
               ))}
               <Link href="/gallery" className="slider-more-btn">
-                Больше фото
+                {t.about.link}
               </Link>
             </div>
           </div>

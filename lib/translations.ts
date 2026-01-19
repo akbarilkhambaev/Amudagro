@@ -1,3 +1,5 @@
+import { link } from "fs"
+
 export type Language = 'ru' | 'en' | 'uz'
 
 export const translations = {
@@ -12,11 +14,13 @@ export const translations = {
     },
     home: {
       hero: {
+        label:'Приглашаем к сотрудничеству',
         title: 'AMUDAGRO — Сочетание вкуса и инноваций',
         subtitle: 'Мы выращиваем высококачественные абрикосы и нектарины в современных интенсивных садах Узбекистана.',
         description: 'Наша продукция соответствует международным стандартам',
         tagline: 'Свежесть. Качество. Надёжность.',
         cta: 'Связаться с нами',
+        products :'Наши продукты',
       },
       features: {
         title: 'Наши преимущества',
@@ -44,11 +48,13 @@ export const translations = {
     },
     about: {
       title: 'О компании',
+      label: 'О компании',
       subtitle: 'Кто мы',
+      link : 'Больше фото',
       description: 'AMUDAGRO — современное агропредприятие, специализирующееся на выращивании премиальных фруктов для внутреннего и международного рынка.',
       mission: {
         title: 'Миссия',
-        text: 'Создавать натуральные, свежие и безопасные фрукты высшего качества, используя современные технологии, международный опыт и экологичный подход.',
+        text: 'Наша цель создавать натуральные, свежие и безопасные фрукты высшего качества, используя современные технологии, международный опыт и экологичный подход.',
       },
       advantages: {
         title: 'Наши преимущества',
@@ -94,6 +100,7 @@ export const translations = {
       ],
     },
     export: {
+      label: 'Международный экспорт',
       title: 'Экспорт',
       subtitle: 'Фрукты мирового уровня',
       description: 'AMUDAGRO ориентирован на экспорт в Европу, Ближний Восток и страны СНГ. Мы инвестируем в технологии, которые позволяют соответствовать международным требованиям к качеству, калибровке и упаковке фруктов.',
@@ -105,6 +112,30 @@ export const translations = {
           'отбор по цвету и качеству',
           'минимизацию человеческого фактора',
           'стабильность поставок для международных клиентов',
+        ],
+      },
+      process: {
+        steps: [
+          {
+            title: 'Современная сортировка — MAF Roda (Франция)',
+            text: 'Профессиональная автоматизированная линия сортировки фруктов, обеспечивающая высокую производительность и точность.',
+          },
+          {
+            title: 'Калибровка по размеру, весу и по дефектам',
+            text: 'Точная автоматическая сортировка без человеческого фактора. Каждый плод проходит индивидуальную оценку.',
+          },
+          {
+            title: 'Отбор по цвету и качеству',
+            text: 'Оптические сенсоры анализируют цвет, форму, внешние и внутренние дефекты, обеспечивая стабильное премиум-качество.',
+          },
+          {
+            title: 'Упаковка и охлаждение',
+            text: 'Предохлаждение, контролируемое хранение и упаковка по международным стандартам для сохранения свежести.',
+          },
+          {
+            title: 'Стабильность поставок',
+            text: 'Единый стандарт качества для международных клиентов. Надёжные партнёрства с импортёрами по всему миру.',
+          },
         ],
       },
       packaging: {
@@ -132,8 +163,10 @@ export const translations = {
       },
     },
     contacts: {
+      label: 'Связаться с нами',
       title: 'Контакты',
       subtitle: 'Свяжитесь с нами',
+      location: 'Наше местоположение',
       address: {
         title: 'Адрес',
         value: 'Хорезмская область, Республика Узбекистан',
@@ -152,13 +185,20 @@ export const translations = {
         phone: 'Телефон',
         message: 'Сообщение',
         send: 'Отправить сообщение',
+        namePlaceholder: 'Ваше имя',
+        emailPlaceholder: 'email@example.com',
+        phonePlaceholder: '+998 XX XXX XX XX',
+        messagePlaceholder: 'Ваше сообщение...',
       },
     },
     footer: {
-      description: 'Премиальные фрукты из Узбекистана в мир',
+      description: 'Премиальные фрукты из Узбекистана',
       navigation: 'Навигация',
+      information: 'Информация',
       contacts: 'Контакты',
       rights: 'Все права защищены',
+      privacy: 'Политика конфиденциальности',
+      terms: 'Условия использования',
     },
     language: 'ru' as const,
   },
@@ -173,11 +213,13 @@ export const translations = {
     },
     home: {
       hero: {
+        label : 'Invitation to cooperate',
         title: 'AMUDAGRO — Where taste meets innovation',
         subtitle: 'We grow high-quality apricots and nectarines in modern intensive orchards of Uzbekistan.',
         description: 'Our products meet international standards',
         tagline: 'Freshness. Quality. Reliability.',
         cta: 'Contact Us',
+        products: 'Our products',
       },
       features: {
         title: 'Our Advantages',
@@ -205,11 +247,13 @@ export const translations = {
     },
     about: {
       title: 'About Company',
+      label: 'About Company',
       subtitle: 'Who We Are',
+      link : 'More photos',
       description: 'AMUDAGRO is a modern agricultural enterprise specializing in growing premium fruits for domestic and international markets.',
       mission: {
         title: 'Mission',
-        text: 'To create natural, fresh and safe fruits of the highest quality using modern technologies, international experience and an eco-friendly approach.',
+        text: 'Our mission is to deliver natural, fresh, and safe fruits of the highest quality through modern technologies, international expertise, and an eco-friendly approach.',
       },
       advantages: {
         title: 'Our Advantages',
@@ -255,6 +299,7 @@ export const translations = {
       ],
     },
     export: {
+      label: 'International Export',
       title: 'Export',
       subtitle: 'World-Class Fruits',
       description: 'AMUDAGRO is focused on exports to Europe, the Middle East and CIS countries. We invest in technologies that allow us to meet international requirements for quality, calibration and fruit packaging.',
@@ -266,6 +311,30 @@ export const translations = {
           'selection by color and quality',
           'minimization of human factor',
           'stable supplies for international clients',
+        ],
+      },
+      process: {
+        steps: [
+          {
+            title: 'Modern Sorting — MAF Roda (France)',
+            text: 'Professional automated fruit sorting line ensuring high productivity and accuracy.',
+          },
+          {
+            title: 'Calibration by Size, Weight and Defects',
+            text: 'Precise automatic sorting without human factor. Each fruit undergoes individual assessment.',
+          },
+          {
+            title: 'Color and Quality Selection',
+            text: 'Optical sensors analyze color, shape, external and internal defects, ensuring consistent premium quality.',
+          },
+          {
+            title: 'Packaging and Cooling',
+            text: 'Pre-cooling, controlled storage and packaging according to international standards to preserve freshness.',
+          },
+          {
+            title: 'Supply Stability',
+            text: 'Unified quality standard for international clients. Reliable partnerships with importers worldwide.',
+          },
         ],
       },
       packaging: {
@@ -293,8 +362,10 @@ export const translations = {
       },
     },
     contacts: {
+      label :'Contact Us',
       title: 'Contacts',
       subtitle: 'Get in Touch',
+      location: 'Our Location',
       address: {
         title: 'Address',
         value: 'Khorezm Region, Republic of Uzbekistan',
@@ -313,13 +384,20 @@ export const translations = {
         phone: 'Phone',
         message: 'Message',
         send: 'Send Message',
+        namePlaceholder: 'Your name',
+        emailPlaceholder: 'email@example.com',
+        phonePlaceholder: '+998 XX XXX XX XX',
+        messagePlaceholder: 'Your message...',
       },
     },
     footer: {
-      description: 'Premium Fruits from Uzbekistan to the World',
+      description: 'Premium Fruits from Uzbekistan',
       navigation: 'Navigation',
+      information: 'Information',
       contacts: 'Contacts',
       rights: 'All rights reserved',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
     },
     language: 'en' as const,
   },
@@ -416,6 +494,7 @@ export const translations = {
       ],
     },
     export: {
+      label: 'Xalqaro eksport',
       title: 'Eksport',
       subtitle: 'Jahon darajasidagi mevalar',
       description: 'AMUDAGRO Yevropa, Yaqin Sharq va MDH mamlakatlariga eksportga yo\'naltirilgan. Biz sifat, kalibratsiya va meva qadoqlash bo\'yicha xalqaro talablarga javob berishga imkon beradigan texnologiyalarga sarmoya kiritamiz.',
@@ -454,8 +533,10 @@ export const translations = {
       },
     },
     contacts: {
+      label: 'Biz bilan bog\'laning',
       title: 'Kontaktlar',
       subtitle: 'Biz bilan bog\'laning',
+      location: 'Bizning manzilimiz',
       address: {
         title: 'Manzil',
         value: 'Xorazm viloyati, O\'zbekiston Respublikasi',
@@ -474,13 +555,20 @@ export const translations = {
         phone: 'Telefon',
         message: 'Xabar',
         send: 'Xabar yuborish',
+        namePlaceholder: 'Ismingiz',
+        emailPlaceholder: 'email@example.com',
+        phonePlaceholder: '+998 XX XXX XX XX',
+        messagePlaceholder: 'Xabaringiz...',
       },
     },
     footer: {
       description: 'O\'zbekistondan dunyoga premium mevalar',
       navigation: 'Navigatsiya',
+      information: 'Ma\'lumot',
       contacts: 'Kontaktlar',
       rights: 'Barcha huquqlar himoyalangan',
+      privacy: 'Maxfiylik siyosati',
+      terms: 'Foydalanish shartlari',
     },
     language: 'uz' as const,
   },

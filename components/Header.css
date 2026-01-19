@@ -97,6 +97,18 @@
   font-weight: 700;
 }
 
+.logo img {
+  width: auto;
+  height: 28px;
+}
+
+@media (min-width: 480px) {
+  .logo img {
+    height: 35px;
+    max-width: 180px;
+  }
+}
+
 .logo-icon {
   width: 32px;
   height: 32px;
@@ -186,6 +198,10 @@
   border-radius: 2px;
 }
 
+.nav-close {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .menu-toggle {
     display: flex;
@@ -193,6 +209,34 @@
 
   .language-switcher {
     order: -1;
+  }
+
+  .nav-close {
+    display: flex;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+
+  .nav-close:hover {
+    background: rgba(0, 104, 56, 0.1);
+    color: var(--primary-green);
+    transform: rotate(90deg);
+  }
+
+  .nav-close:active {
+    transform: rotate(90deg) scale(0.95);
   }
 
   .nav {

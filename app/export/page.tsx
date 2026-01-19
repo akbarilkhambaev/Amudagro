@@ -11,7 +11,7 @@ export default function Export() {
     <div className="page-container">
       <section className="page-hero">
         <div className="container">
-          <span className="page-hero-label">Международный экспорт</span>
+          <span className="page-hero-label">{t.export.label}</span>
           <h1>{t.export.title}</h1>
           <p>{t.export.subtitle}</p>
         </div>

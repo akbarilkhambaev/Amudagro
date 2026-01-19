@@ -24,6 +24,14 @@
   color: var(--primary-green);
 }
 
+.maf-header .section-title {
+  color: var(--text-dark) !important;
+}
+
+.maf-header .section-subtitle {
+  color: var(--text-gray) !important;
+}
+
 .maf-process-image {
   margin-top: 2rem;
   border-radius: 20px;
