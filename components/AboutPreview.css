@@ -37,14 +37,14 @@
 }
 
 .about-preview-text .section-label {
-  color: #8cc63f;
+  color: #8cc63f !important;
 }
 
 .about-preview-text .section-title {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 1.6rem;
-  color: white;
+  color: white !important;
 }
 
 @media (min-width: 768px) {
@@ -64,7 +64,7 @@
 .about-preview-text p {
   font-size: 0.9rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85) !important;
   margin-bottom: 1rem;
 }
 

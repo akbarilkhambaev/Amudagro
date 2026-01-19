@@ -10,7 +10,7 @@ export default function CTA() {
     <section className="cta section">
       <div className="container">
         <div className="cta-content">
-          <span className="section-label">{t.home.hero.label}</span>
+          <span className="section-label">{t.home.hero.title}</span>
           <h2>{t.home.hero.title}</h2>
           <p>{t.home.hero.subtitle}</p>
           <div className="cta-buttons">

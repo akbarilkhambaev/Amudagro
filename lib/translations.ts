@@ -51,6 +51,7 @@ export const translations = {
       label: 'О компании',
       subtitle: 'Кто мы',
       link : 'Больше фото',
+      readMore: 'Подробнее',
       description: 'AMUDAGRO — современное агропредприятие, специализирующееся на выращивании премиальных фруктов для внутреннего и международного рынка.',
       mission: {
         title: 'Миссия',
@@ -250,6 +251,7 @@ export const translations = {
       label: 'About Company',
       subtitle: 'Who We Are',
       link : 'More photos',
+      readMore: 'Learn More',
       description: 'AMUDAGRO is a modern agricultural enterprise specializing in growing premium fruits for domestic and international markets.',
       mission: {
         title: 'Mission',
@@ -417,6 +419,7 @@ export const translations = {
         description: 'Bizning mahsulotlarimiz xalqaro standartlarga javob beradi',
         tagline: 'Yangilik. Sifat. Ishonchlilik.',
         cta: 'Biz bilan bog\'laning',
+        products :'Bizning maxsulotlar',
       },
       features: {
         title: 'Bizning afzalliklarimiz',
@@ -444,7 +447,10 @@ export const translations = {
     },
     about: {
       title: 'Kompaniya haqida',
+      label: 'Kompaniya haqida',
       subtitle: 'Biz kimmiz',
+      link : 'Koproq rasmlar',
+      readMore: 'Batafsil',
       description: 'AMUDAGRO — ichki va xalqaro bozorlar uchun premium mevalar yetishtirishga ixtisoslashgan zamonaviy qishloq xo\'jalik korxonasi.',
       mission: {
         title: 'Missiya',
@@ -506,6 +512,30 @@ export const translations = {
           'rang va sifat bo\'yicha tanlash',
           'inson omilini minimallashtirish',
           'xalqaro mijozlar uchun barqaror yetkazib berish',
+        ],
+      },
+       process: {
+        steps: [
+          {
+            title: 'Modern Sorting — MAF Roda (France)',
+            text: 'Professional automated fruit sorting line ensuring high productivity and accuracy.',
+          },
+          {
+            title: 'Calibration by Size, Weight and Defects',
+            text: 'Precise automatic sorting without human factor. Each fruit undergoes individual assessment.',
+          },
+          {
+            title: 'Color and Quality Selection',
+            text: 'Optical sensors analyze color, shape, external and internal defects, ensuring consistent premium quality.',
+          },
+          {
+            title: 'Packaging and Cooling',
+            text: 'Pre-cooling, controlled storage and packaging according to international standards to preserve freshness.',
+          },
+          {
+            title: 'Supply Stability',
+            text: 'Unified quality standard for international clients. Reliable partnerships with importers worldwide.',
+          },
         ],
       },
       packaging: {
