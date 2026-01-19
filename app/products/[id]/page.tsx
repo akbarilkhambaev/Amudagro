@@ -19,7 +19,11 @@ interface Product {
     uz: string
   }
   specifications: {
-    season: string
+    season: {
+      ru: string
+      en: string
+      uz: string
+    }
     shape: {
       ru: string
       en: string
@@ -66,16 +70,20 @@ const products: Product[] = [
       uz: 'Honey Sugar',
     },
     specifications: {
-      season: '15-25 Июнь',
+      season:{
+        ru : '15-25 Июнь',
+        en : '15-25 June',
+        uz : '15-25 Iyun',
+      } ,
       shape: {
         ru: 'Круглая',
         en: 'Round',
         uz: 'Dumaloq',
       },
       firmness: {
-        ru: 'Хорошая',
-        en: 'Good',
-        uz: 'Yaxshi',
+        ru: 'Очень хорошая',
+        en: 'Very good',
+        uz: 'Juda yaxshi',
       },
       cracking: {
         ru: 'Нет',
@@ -83,8 +91,8 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Красный (90%)',
-        en: 'Red (90%)',
+        ru: 'Ярко-красный',
+        en: 'Bright dark red',
         uz: 'Qizil (90%)',
       },
       flesh: {
@@ -105,15 +113,19 @@ const products: Product[] = [
       '/nectarins/kinolea.avif',
     ],
     name: {
-      ru: 'Кинолеа',
+      ru: 'Kinolea',
       en: 'Kinolea',
       uz: 'Kinolea',
     },
     specifications: {
-      season: '10-15 Июнь',
+      season: {
+        ru: '10-15 Июнь',
+        en: '10-15 June',
+        uz: '10-15 Iyun',
+      },
       shape: {
-        ru: 'Круглая',
-        en: 'Round',
+        ru: ' Круглая, удлиненная',
+        en: 'Round, elongated',
         uz: 'Dumaloq',
       },
       firmness: {
@@ -127,9 +139,9 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Ярко-красная',
-        en: 'Bright red',
-        uz: 'Yorqin qizil',
+        ru: 'Красный ',
+        en: 'Red ',
+        uz: ' Qizil',
       },
       flesh: {
         ru: 'Желтая',
@@ -154,16 +166,20 @@ const products: Product[] = [
       uz: 'Honey Top',
     },
     specifications: {
-      season: '25-30 Июнь',
+      season: {
+        ru: '25-30 Июнь',
+        en: '25-30 June',
+        uz: '25-30 Iyun',
+      },
       shape: {
         ru: 'Круглая',
         en: 'Round',
         uz: 'Dumaloq',
       },
       firmness: {
-        ru: 'Хорошая',
-        en: 'Good',
-        uz: 'Yaxshi',
+        ru: 'Очень хорошая',
+        en: 'Very good',
+        uz: 'Juda yaxshi',
       },
       cracking: {
         ru: 'Нет',
@@ -171,7 +187,7 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Желто-красная',
+        ru: 'Ярко-красный',
         en: 'Yellow-red',
         uz: 'Sariq-qizil',
       },
@@ -198,7 +214,11 @@ const products: Product[] = [
       uz: 'Luciana',
     },
     specifications: {
-      season: '01-10 Июль',
+      season: {
+        ru: '20-30 Июнь',
+        en: '20-30 June',
+        uz: '20-30 Iyun',
+      },
       shape: {
         ru: 'Круглая',
         en: 'Round',
@@ -242,16 +262,20 @@ const products: Product[] = [
       uz: 'Klariss',
     },
     specifications: {
-      season: '15-25 Июль',
+      season: {
+        ru: '15-25 Июль',
+        en: '15-25 July',
+        uz: '15-25 Iyul',
+      },
       shape: {
-        ru: 'Овальная',
-        en: 'Oval',
+        ru: 'Круглая',
+        en: 'Round',
         uz: 'Oval',
       },
       firmness: {
-        ru: 'Средняя',
-        en: 'Medium',
-        uz: 'O\'rta',
+        ru: 'Очень хорошая',
+        en: 'Very good',
+        uz: 'Juda yaxshi',
       },
       cracking: {
         ru: 'Нет',
@@ -259,14 +283,14 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Оранжевая',
-        en: 'Orange',
-        uz: 'To\'q sariq',
+         ru: 'Темно-красная',
+        en: 'Dark red',
+        uz: 'To\'q qizil',
       },
       flesh: {
-        ru: 'Белая',
-        en: 'White',
-        uz: 'Oq',
+        ru: 'Желтая ',
+        en: 'Yellow',
+        uz: 'Sariq',
       },
       caliber: '65-75 мм',
       sugar: '14° Brix',
@@ -286,16 +310,20 @@ const products: Product[] = [
       uz: 'Konketa',
     },
     specifications: {
-      season: '01-10 Август',
+      season: {
+        ru: '01-10 Август',
+        en: '01-10 August',
+        uz: '01-10 Avgust',
+      },
       shape: {
-        ru: 'Овальная',
-        en: 'Oval',
-        uz: 'Oval',
+        ru: 'Круглая',
+        en: 'Round',
+        uz: 'Dumaloq',
       },
       firmness: {
-        ru: 'Средняя',
-        en: 'Medium',
-        uz: 'O\'rta',
+        ru: 'Очень хорошая',
+        en: 'Very good',
+        uz: 'Juda yaxshi',
       },
       cracking: {
         ru: 'Нет',
@@ -303,14 +331,14 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Золотисто-оранжевая',
-        en: 'Golden orange',
-        uz: 'Oltin-to\'q sariq',
+        ru: ' Темно красный',
+        en: 'Dark red',
+        uz: 'To\'q qizil',
       },
       flesh: {
-        ru: 'Белая',
-        en: 'White',
-        uz: 'Oq',
+        ru: 'Желтая ',
+        en: 'Yellow',
+        uz: 'Sariq',
       },
       caliber: '65-75 мм',
       sugar: '16° Brix',
@@ -330,7 +358,11 @@ const products: Product[] = [
       uz: 'Rubissia',
     },
     specifications: {
-      season: '25-30 Май',
+      season: {
+        ru: '25-30 Май',
+        en: '25-30 May',
+        uz: '25-30 May',
+      },
       shape: {
         ru: 'Овальная',
         en: 'Oval',
@@ -369,16 +401,20 @@ const products: Product[] = [
       uz: 'Bolero',
     },
     specifications: {
-      season: '01-10 Июнь',
+      season: {
+        ru: '01-10 Июнь',
+        en: '01-10 June',
+        uz: '01-10 Iyun',
+      },
       shape: {
-        ru: 'Овальная',
-        en: 'Oval',
+        ru: 'Овальная, удлиненная ',
+        en: 'Oval, elongated ',
         uz: 'Oval',
       },
       firmness: {
-        ru: 'Очень хорошая',
-        en: 'Very good',
-        uz: 'Juda yaxshi',
+        ru: 'Хорошая ',
+        en: 'Good',
+        uz: 'Yaxshi',
       },
       cracking: {
         ru: 'Нет',
@@ -386,9 +422,9 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Ярко-оранжевая',
-        en: 'Bright orange',
-        uz: 'Yorqin to\'q sariq',
+        ru: 'Красный (70%)',
+        en: 'Red (70%)',
+        uz: 'Qizil (70%)',
       },
       caliber: '40-50 мм',
       sugar: '15° Brix',
@@ -408,16 +444,20 @@ const products: Product[] = [
       uz: 'Milord',
     },
     specifications: {
-      season: '05-15 Июль',
+      season: {
+        ru: '05-15 Июль',
+        en: '05-15 July',
+        uz: '05-15 Iyul',
+      },
       shape: {
-        ru: 'Овальная',
-        en: 'Oval',
-        uz: 'Oval',
+        ru: 'Круглая ',
+        en: 'Round',
+        uz: 'Dumaloq',
       },
       firmness: {
-        ru: 'Хорошая',
-        en: 'Good',
-        uz: 'Yaxshi',
+        ru: 'Очень хорошая ',
+        en: 'Very good',
+        uz: 'Juda yaxshi',
       },
       cracking: {
         ru: 'Нет',
@@ -425,8 +465,8 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Оранжево-красная',
-        en: 'Orange-red',
+        ru: 'Желто-красный',
+        en: 'Yellow-red',
         uz: 'To\'q sariq-qizil',
       },
       caliber: '40-50 мм',
@@ -447,16 +487,20 @@ const products: Product[] = [
       uz: 'Madrigal',
     },
     specifications: {
-      season: '10-20 Июль',
+      season: {
+        ru: '10-20 Июль',
+        en: '10-20 July',
+        uz: '10-20 Iyul',
+      },
       shape: {
-        ru: 'Овальная',
-        en: 'Oval',
-        uz: 'Oval',
+        ru: 'Круглая ',
+        en: 'Round',
+        uz: 'Dumaloq',
       },
       firmness: {
-        ru: 'Хорошая',
-        en: 'Good',
-        uz: 'Yaxshi',
+        ru: 'Очень хорошая ',
+        en: 'Very good',
+        uz: 'Juda yaxshi',
       },
       cracking: {
         ru: 'Нет',
@@ -464,9 +508,9 @@ const products: Product[] = [
         uz: 'Yo\'q',
       },
       color: {
-        ru: 'Глубокая оранжевая',
-        en: 'Deep orange',
-        uz: 'Chuqur to\'q sariq',
+        ru: 'Оранжево-красный',
+        en: 'Orange-red',
+        uz: 'To\'q sariq-qizil',
       },
       caliber: '40-50 мм',
       sugar: '19° Brix',
@@ -529,8 +573,8 @@ export default function ProductPage({ params }: { params: { id: string } }) {
     },
     caliber: {
       ru: 'Калибр',
-      en: 'Caliber',
-      uz: 'Kalibr',
+      en: 'Size',
+      uz: 'O\'lchami',
     },
     sugar: {
       ru: 'Уровень сахара',
@@ -612,7 +656,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   </tr>
                   <tr>
                     <td className="spec-label">{labels.season[language]}</td>
-                    <td className="spec-value">{product.specifications.season}</td>
+                    <td className="spec-value">{product.specifications.season[language]}</td>
                   </tr>
                   <tr>
                     <td className="spec-label">{labels.shape[language]}</td>

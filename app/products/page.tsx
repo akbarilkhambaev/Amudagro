@@ -247,7 +247,7 @@ export default function Products() {
     },
     caliber: {
       ru: 'Калибр',
-      en: 'Caliber',
+      en: 'Size ',
       uz: 'Kalibr',
     },
     sugar: {
@@ -257,7 +257,7 @@ export default function Products() {
     },
     season: {
       ru: 'Сезон',
-      en: 'Season',
+      en: 'Harvest period',
       uz: 'Mavsum',
     },
     learnMore: {
