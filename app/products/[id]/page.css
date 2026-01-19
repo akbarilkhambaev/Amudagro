@@ -114,7 +114,7 @@
   text-transform: capitalize;
 }
 
-.product-description {
+.product-detail-description {
   font-size: 18px;
   line-height: 1.8;
   color: #555;
@@ -223,7 +223,7 @@
     font-size: 32px;
   }
 
-  .product-description {
+  .product-detail-description {
     font-size: 16px;
     padding: 15px;
   }
@@ -260,7 +260,7 @@
     font-size: 28px;
   }
 
-  .product-description {
+  .product-detail-description {
     font-size: 15px;
   }
 

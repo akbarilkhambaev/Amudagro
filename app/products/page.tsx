@@ -293,7 +293,7 @@ export default function Products() {
       </div>
       <div className="product-info">
         <h3 className="product-name">{product.name[language]}</h3>
-        <p className="product-description">{product.shortDescription[language]}</p>
+        <p className="products-list-description">{product.shortDescription[language]}</p>
         <div className="product-specs">
           <div className="spec-item">
             <span className="spec-label">{labels.caliber[language]}</span>

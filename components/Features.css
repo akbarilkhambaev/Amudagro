@@ -41,7 +41,7 @@
 
 @media (min-width: 1024px) {
   .products-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
   }
 }
@@ -114,7 +114,7 @@
   }
 }
 
-.product-description {
+.features-product-description {
   font-size: 0.9rem;
   color: var(--text-gray);
   line-height: 1.6;

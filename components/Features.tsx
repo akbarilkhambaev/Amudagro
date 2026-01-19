@@ -187,7 +187,7 @@ export default function Features() {
               </div>
               <div className="product-content">
                 <h3 className="product-name">{product.name[language]}</h3>
-                <p className="product-description">{product.description[language]}</p>
+                <p className="features-product-description">{product.description[language]}</p>
                 <div className="product-characteristics">
                   <div className="characteristic">
                     <span className="characteristic-label">{labels.caliber[language]}</span>
