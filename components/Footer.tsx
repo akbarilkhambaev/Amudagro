@@ -60,7 +60,7 @@ export default function Footer() {
               </li>
               <li>
                 <FaPhone className="footer-icon" />
-                <span>+998 XX XXX XX XX</span>
+                <span>+998 90 935 81 00</span>
               </li>
             </ul>
           </div>
