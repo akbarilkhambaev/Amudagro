@@ -60,9 +60,8 @@ const products: Product[] = [
     id: 'Honey Sugar',
     category: 'nectarine',
     images: [
-      '/nectarins/honey_sugar.avif',
-      '/nectarins/honey_sugar.avif',
-      '/nectarins/honey_sugar.avif',
+      '/nectarins/honey_sugar.jpg',
+
     ],
     name: {
       ru: 'Honey Sugar',
@@ -108,9 +107,8 @@ const products: Product[] = [
     id: 'Kinolea',
     category: 'nectarine',
     images: [
-      '/nectarins/kinolea.avif',
-      '/nectarins/kinolea.avif',
-      '/nectarins/kinolea.avif',
+      '/nectarins/kinolea.jpg',
+      '/nectarins/kinolea_2.jpg',
     ],
     name: {
       ru: 'Kinolea',
@@ -156,9 +154,7 @@ const products: Product[] = [
     id: 'Honey Top',
     category: 'nectarine',
     images: [
-      '/nectarins/honey_top.avif',
-      '/nectarins/honey_top.avif',
-      '/nectarins/honey_top.avif',
+      '/nectarins/honey_top.jpg',
     ],
     name: {
       ru: 'Honey Top',
@@ -204,12 +200,12 @@ const products: Product[] = [
     id: 'Luciana',
     category: 'nectarine',
     images: [
-      '/nectarins/luciana.avif',
-      '/nectarins/luciana.avif',
-      '/nectarins/luciana.avif',
+      '/nectarins/luciana.jpg',
+      '/nectarins/luciana_2.jpg',
+
     ],
     name: {
-      ru: 'Лусиана',
+      ru: 'Luciana',
       en: 'Luciana',
       uz: 'Luciana',
     },
@@ -252,14 +248,13 @@ const products: Product[] = [
     id: 'Clariss',
     category: 'nectarine',
     images: [
-      '/nectarins/clarris.avif',
-      '/nectarins/clarris.avif',
-      '/nectarins/clarris.avif',
+      '/nectarins/clariss.jpg',
+      '/nectarins/clariss_2.jpg',
     ],
     name: {
-      ru: 'Кларисс',
+      ru: 'Clariss',
       en: 'Clariss',
-      uz: 'Klariss',
+      uz: 'Clariss',
     },
     specifications: {
       season: {
@@ -300,14 +295,12 @@ const products: Product[] = [
     id: 'Conquete',
     category: 'nectarine',
     images: [
-      '/nectarins/conquete.avif',
-      '/nectarins/conquete.avif',
-      '/nectarins/conquete.avif',
+      '/nectarins/conquete.jpg',
     ],
     name: {
-      ru: 'Конкетти',
+      ru: 'Conquete',
       en: 'Conquete',
-      uz: 'Konketa',
+      uz: 'Conquete',
     },
     specifications: {
       season: {
@@ -348,12 +341,12 @@ const products: Product[] = [
     id: 'Rubissia',
     category: 'apricot',
     images: [
-      '/appricots/rubissia.avif',
-      '/appricots/rubissia.avif',
-      '/appricots/rubissia.avif',
+      '/appricots/rubissia.jpg',
+      '/appricots/rubissia_2.jpg',
+
     ],
     name: {
-      ru: 'Рубиссия',
+      ru: 'Rubissia',
       en: 'Rubissia',
       uz: 'Rubissia',
     },
@@ -391,12 +384,11 @@ const products: Product[] = [
     id: 'Bolero',
     category: 'apricot',
     images: [
-      '/appricots/bolero.avif',
-      '/appricots/bolero.avif',
-      '/appricots/bolero.avif',
+      '/appricots/bolero.jpg',
+      '/appricots/bolero_2.jpg',
     ],
     name: {
-      ru: 'Болеро',
+      ru: 'Bolero',
       en: 'Bolero',
       uz: 'Bolero',
     },
@@ -434,12 +426,11 @@ const products: Product[] = [
     id: 'Milord',
     category: 'apricot',
     images: [
-      '/appricots/milord.avif',
-      '/appricots/milord.avif',
-      '/appricots/milord.avif',
+      '/appricots/milord.jpg',
+      '/appricots/milord_2.jpg',
     ],
     name: {
-      ru: 'Милорд',
+      ru: 'Milord',
       en: 'Milord',
       uz: 'Milord',
     },
@@ -477,12 +468,11 @@ const products: Product[] = [
     id: 'Madrigal',
     category: 'apricot',
     images: [
-      '/appricots/madrigal.avif',
-      '/appricots/madrigal.avif',
-      '/appricots/madrigal.avif',
+      '/appricots/madrigal.jpg',
+      '/appricots/madrigal_2.jpg',
     ],
     name: {
-      ru: 'Мадригал',
+      ru: 'Madrigal',
       en: 'Madrigal',
       uz: 'Madrigal',
     },

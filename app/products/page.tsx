@@ -33,7 +33,7 @@ const products: Product[] = [
   {
     id: 'Honey Sugar',
     category: 'nectarine',
-    image: '/nectarins/honey_sugar.avif',
+    image: '/nectarins/honey_sugar.jpg',
     name: {
       ru: 'Honey Sugar',
       en: 'Honey Sugar',
@@ -51,7 +51,7 @@ const products: Product[] = [
   {
     id: 'Kinolea',
     category: 'nectarine',
-    image: '/nectarins/kinolea.avif',
+    image: '/nectarins/kinolea.jpg',
     name: {
       ru: 'Kinolea',
       en: 'Kinolea',
@@ -69,7 +69,7 @@ const products: Product[] = [
   {
     id: 'Honey Top',
     category: 'nectarine',
-    image: '/nectarins/honey_top.avif',
+    image: '/nectarins/honey_top.jpg',
     name: {
       ru: 'Honey Top',
       en: 'Honey Top',
@@ -87,7 +87,7 @@ const products: Product[] = [
   {
     id: 'Luciana',
     category: 'nectarine',
-    image: '/nectarins/luciana.avif',
+    image: '/nectarins/luciana.jpg',
     name: {
       ru: 'Luciana',
       en: 'Luciana',
@@ -105,7 +105,7 @@ const products: Product[] = [
   {
     id: 'Clariss',
     category: 'nectarine',
-    image: '/nectarins/clarris.avif',
+    image: '/nectarins/clariss.jpg',
     name: {
       ru: 'Clariss',
       en: 'Clariss',
@@ -123,7 +123,7 @@ const products: Product[] = [
   {
     id: 'Conquete',
     category: 'nectarine',
-    image: '/nectarins/conquete.avif',
+    image: '/nectarins/conquete.jpg',
     name: {
       ru: 'Conquete',
       en: 'Conquete',
@@ -142,7 +142,7 @@ const products: Product[] = [
   {
     id: 'Rubissia',
     category: 'apricot',
-    image: '/appricots/rubissia.avif',
+    image: '/appricots/rubissia.jpg',
     name: {
       ru: 'Rubissia',
       en: 'Rubissia',
@@ -160,7 +160,7 @@ const products: Product[] = [
   {
     id: 'Bolero',
     category: 'apricot',
-    image: '/appricots/bolero.avif',
+    image: '/appricots/bolero.jpg',
     name: {
       ru: 'Bolero',
       en: 'Bolero',
@@ -178,7 +178,7 @@ const products: Product[] = [
   {
     id: 'Milord',
     category: 'apricot',
-    image: '/appricots/milord.avif',
+    image: '/appricots/milord.jpg',
     name: {
       ru: 'Milord',
       en: 'Milord',
@@ -196,7 +196,7 @@ const products: Product[] = [
   {
     id: 'Madrigal',
     category: 'apricot',
-    image: '/appricots/madrigal.avif',
+    image: '/appricots/madrigal.jpg',
     name: {
       ru: 'Madrigal',
       en: 'Madrigal',
@@ -277,7 +277,7 @@ export default function Products() {
     },
   }
 
-  const ProductCard = ({ product }: { product: Product }) => (
+  const ProductCard = ({ product, index }: { product: Product; index: number }) => (
     <Link href={`/products/${product.id}`} className="product-card">
       <div className="product-image-wrapper">
         <Image
@@ -288,7 +288,8 @@ export default function Products() {
           className="product-image"
           style={{ objectFit: 'cover' }}
           quality={90}
-          loading="lazy"
+          priority={index < 2}
+          loading={index < 2 ? 'eager' : 'lazy'}
         />
         <div className="product-overlay">
           <span className="learn-more-btn">{labels.learnMore[language]}</span>
@@ -333,8 +334,8 @@ export default function Products() {
             <h2>{labels.nectarines[language]}</h2>
           </div>
           <div className="products-grid">
-            {nectarines.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {nectarines.map((product, index) => (
+              <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
         </div>
@@ -348,8 +349,8 @@ export default function Products() {
             <h2>{labels.apricots[language]}</h2>
           </div>
           <div className="products-grid">
-            {apricots.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {apricots.map((product, index) => (
+              <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
         </div>

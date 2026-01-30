@@ -131,11 +131,8 @@
 }
 
 .product-image {
-  object-fit: cover !important;
+  object-fit: cover;
   transition: transform 0.5s ease;
-  width: 100% !important;
-  height: 100% !important;
-  position: relative !important;
 }
 
 .product-card:hover .product-image {

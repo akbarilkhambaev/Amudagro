@@ -13,7 +13,7 @@ const productsData = [
       en: 'Kinolea',
       uz: 'Kinolea',
     },
-    image: '/nectarins/kinolea.avif',
+    image: '/nectarins/kinolea.jpg',
     description: {
       ru: 'Ранний сорт с ярким красным румянцем и плотной желтой мякотью',
       en: 'Early variety with bright red blush and firm yellow flesh',
@@ -42,7 +42,7 @@ const productsData = [
       en: 'Honey Top',
       uz: 'Honey Top',
     },
-    image: '/nectarins/honey_top.avif',
+    image: '/nectarins/honey_top.jpg',
     description: {
       ru: 'Среднеспелый сорт с отличными вкусовыми качествами и желтой мякотью',
       en: 'Mid-season variety with excellent taste qualities and yellow flesh',
@@ -71,7 +71,7 @@ const productsData = [
       en: 'Rubissia',
       uz: 'Rubissia',
     },
-    image: '/appricots/rubissia.avif',
+    image: '/appricots/rubissia.jpg',
     description: {
       ru: 'Французский сорт с высоким содержанием сахара и красным окрасом',
       en: 'French variety with high sugar content and red color',
@@ -100,7 +100,7 @@ const productsData = [
       en: 'Madrigal',
       uz: 'Madrigal',
     },
-    image: '/appricots/madrigal.avif',
+    image: '/appricots/madrigal.jpg',
     description: {
       ru: 'Премиальный абрикос с глубоким оранжевым цветом и высоким уровнем сахара',
       en: 'Premium apricot with deep orange color and high sugar level',
