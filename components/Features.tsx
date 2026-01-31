@@ -1,6 +1,8 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { motion, useAnimation, useMotionValue } from 'framer-motion'
 import { useLanguage } from '@/contexts/LanguageContext'
 import './Features.css'
 
@@ -125,6 +127,17 @@ const productsData = [
 
 export default function Features() {
   const { language } = useLanguage()
+  const viewportRef = useRef<HTMLDivElement | null>(null)
+  const trackRef = useRef<HTMLDivElement | null>(null)
+  const controls = useAnimation()
+  const x = useMotionValue(0)
+  const autoplayRef = useRef<number | null>(null)
+  const resumeTimeoutRef = useRef<number | null>(null)
+  const [step, setStep] = useState(0)
+  const [maxOffset, setMaxOffset] = useState(0)
+  const baseCount = productsData.length
+  const [currentIndex, setCurrentIndex] = useState(baseCount)
+  const currentIndexRef = useRef(baseCount)
 
   const labels = {
     sectionLabel: {
@@ -169,6 +182,88 @@ export default function Features() {
     },
   }
 
+  const normalizeIndex = (value: number) => {
+    if (!step) return baseCount
+    if (value < baseCount) return value + baseCount
+    if (value >= baseCount * 2) return value - baseCount
+    return value
+  }
+
+  const snapToIndex = (value: number) => {
+    const nextIndex = normalizeIndex(value)
+    const nextX = -nextIndex * step
+    setCurrentIndex(nextIndex)
+    currentIndexRef.current = nextIndex
+    controls.start({
+      x: nextX,
+      transition: { type: 'spring', stiffness: 320, damping: 35 },
+    })
+  }
+
+  const stopAutoplay = () => {
+    if (autoplayRef.current !== null) {
+      window.clearInterval(autoplayRef.current)
+      autoplayRef.current = null
+    }
+  }
+
+  const startAutoplay = () => {
+    stopAutoplay()
+    autoplayRef.current = window.setInterval(() => {
+      snapToIndex(currentIndexRef.current + 1)
+    }, 3500)
+  }
+
+  const scheduleAutoplayResume = () => {
+    if (resumeTimeoutRef.current !== null) {
+      window.clearTimeout(resumeTimeoutRef.current)
+    }
+    resumeTimeoutRef.current = window.setTimeout(() => {
+      startAutoplay()
+    }, 4000)
+  }
+
+  useEffect(() => {
+    const viewport = viewportRef.current
+    const track = trackRef.current
+    if (!viewport || !track) return
+
+    const updateMeasurements = () => {
+      const firstCard = track.querySelector<HTMLElement>('.product-card')
+      if (!firstCard) return
+
+      const styles = window.getComputedStyle(track)
+      const gapValue = styles.columnGap || styles.gap || '0'
+      const gap = Number.parseFloat(gapValue) || 0
+      const nextStep = firstCard.offsetWidth + gap
+      const nextMaxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth)
+
+      setStep(nextStep)
+      setMaxOffset(nextMaxOffset)
+
+      const nextIndex = normalizeIndex(currentIndexRef.current)
+      x.set(-nextIndex * nextStep)
+      controls.set({ x: -nextIndex * nextStep })
+    }
+
+    updateMeasurements()
+    window.addEventListener('resize', updateMeasurements)
+
+    return () => {
+      window.removeEventListener('resize', updateMeasurements)
+    }
+  }, [controls, x])
+
+  useEffect(() => {
+    startAutoplay()
+    return () => {
+      stopAutoplay()
+      if (resumeTimeoutRef.current !== null) {
+        window.clearTimeout(resumeTimeoutRef.current)
+      }
+    }
+  }, [])
+
   return (
     <section className="features section">
       <div className="container">
@@ -179,41 +274,88 @@ export default function Features() {
             {labels.subtitle[language]}
           </p>
         </div>
-        <div className="products-grid">
-          {productsData.map((product) => (
-            <div key={product.id} className="product-card">
-              <div className="product-image">
-                <div className="product-image-inner">
-                  <img src={product.image} alt={product.name[language]} />
+        <div className="products-slider">
+          <button
+            type="button"
+            className="products-slider-btn prev"
+            onClick={() => {
+              stopAutoplay()
+              snapToIndex(currentIndex - 1)
+              scheduleAutoplayResume()
+            }}
+            aria-label="Предыдущий товар"
+          >
+            ‹
+          </button>
+          <div
+            ref={viewportRef}
+            className="products-track"
+            onMouseEnter={stopAutoplay}
+            onMouseLeave={startAutoplay}
+          >
+            <motion.div
+              ref={trackRef}
+              className="products-track-inner"
+              drag="x"
+              dragConstraints={{ left: -maxOffset, right: 0 }}
+              style={{ x }}
+              animate={controls}
+              onDragStart={stopAutoplay}
+              onDragEnd={() => {
+                if (!step) return
+                const nextIndex = Math.round(Math.abs(x.get()) / step)
+                snapToIndex(nextIndex)
+                scheduleAutoplayResume()
+              }}
+            >
+              {[...productsData, ...productsData, ...productsData].map((product, index) => (
+                <div key={`${product.id}-${index}`} className="product-card">
+                  <div className="product-image">
+                    <div className="product-image-inner">
+                      <img src={product.image} alt={product.name[language]} />
+                    </div>
+                  </div>
+                  <div className="product-content">
+                    <h3 className="product-name">{product.name[language]}</h3>
+                    {/* <p className="features-product-description">{product.description[language]}</p> */}
+                    <div className="product-characteristics">
+                      <div className="characteristic">
+                        <span className="characteristic-label">{labels.caliber[language]}</span>
+                        <span className="characteristic-value">{product.characteristics.caliber}</span>
+                      </div>
+                      <div className="characteristic">
+                        <span className="characteristic-label">{labels.season[language]}</span>
+                        <span className="characteristic-value">{product.characteristics.season[language]}</span>
+                      </div>
+                      <div className="characteristic">
+                        <span className="characteristic-label">{labels.sugar[language]}</span>
+                        <span className="characteristic-value">{product.characteristics.sugar}</span>
+                      </div>
+                      <div className="characteristic">
+                        <span className="characteristic-label">{labels.color[language]}</span>
+                        <span className="characteristic-value">{product.characteristics.color[language]}</span>
+                      </div>
+                    </div>
+                    <Link href={`/products/${product.id}`} className="product-btn">
+                      {labels.learnMore[language]}
+                    </Link>
+                  </div>
                 </div>
-              </div>
-              <div className="product-content">
-                <h3 className="product-name">{product.name[language]}</h3>
-                <p className="features-product-description">{product.description[language]}</p>
-                <div className="product-characteristics">
-                  <div className="characteristic">
-                    <span className="characteristic-label">{labels.caliber[language]}</span>
-                    <span className="characteristic-value">{product.characteristics.caliber}</span>
-                  </div>
-                  <div className="characteristic">
-                    <span className="characteristic-label">{labels.season[language]}</span>
-                    <span className="characteristic-value">{product.characteristics.season[language]}</span>
-                  </div>
-                  <div className="characteristic">
-                    <span className="characteristic-label">{labels.sugar[language]}</span>
-                    <span className="characteristic-value">{product.characteristics.sugar}</span>
-                  </div>
-                  <div className="characteristic">
-                    <span className="characteristic-label">{labels.color[language]}</span>
-                    <span className="characteristic-value">{product.characteristics.color[language]}</span>
-                  </div>
-                </div>
-                <Link href={`/products/${product.id}`} className="product-btn">
-                  {labels.learnMore[language]}
-                </Link>
-              </div>
-            </div>
-          ))}
+              ))}
+            </motion.div>
+          </div>
+          <button
+            type="button"
+            className="products-slider-btn next"
+            onClick={() => {
+              stopAutoplay()
+              snapToIndex(currentIndex + 1)
+              scheduleAutoplayResume()
+            }}
+            aria-label="Следующий товар"
+          >
+            ›
+          </button>
         </div>
       </div>
     </section>
