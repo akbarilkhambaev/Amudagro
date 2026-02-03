@@ -278,38 +278,38 @@ export default function Products() {
   }
 
   const ProductCard = ({ product, index }: { product: Product; index: number }) => (
-    <Link href={`/products/${product.id}`} className="product-card">
-      <div className="product-image-wrapper">
+    <Link href={`/products/${product.id}`} className="products-page-card">
+      <div className="products-page-image-wrapper">
         <Image
           src={product.image}
           alt={product.name[language]}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="product-image"
+          className="products-page-image"
           style={{ objectFit: 'cover' }}
           quality={90}
           priority={index < 2}
           loading={index < 2 ? 'eager' : 'lazy'}
         />
-        <div className="product-overlay">
-          <span className="learn-more-btn">{labels.learnMore[language]}</span>
+        <div className="products-page-overlay">
+          <span className="products-page-cta">{labels.learnMore[language]}</span>
         </div>
       </div>
-      <div className="product-info">
-        <h3 className="product-name">{product.name[language]}</h3>
-        <p className="products-list-description">{product.shortDescription[language]}</p>
-        <div className="product-specs">
-          <div className="spec-item">
-            <span className="spec-label">{labels.caliber[language]}</span>
-            <span className="spec-value">{product.caliber}</span>
+      <div className="products-page-info">
+        <h3 className="products-page-name">{product.name[language]}</h3>
+        <p className="products-page-description">{product.shortDescription[language]}</p>
+        <div className="products-page-specs">
+          <div className="products-page-spec-item">
+            <span className="products-page-spec-label">{labels.caliber[language]}</span>
+            <span className="products-page-spec-value">{product.caliber}</span>
           </div>
-          <div className="spec-item">
-            <span className="spec-label">{labels.sugar[language]}</span>
-            <span className="spec-value">{product.sugar}</span>
+          <div className="products-page-spec-item">
+            <span className="products-page-spec-label">{labels.sugar[language]}</span>
+            <span className="products-page-spec-value">{product.sugar}</span>
           </div>
-          <div className="spec-item">
-            <span className="spec-label">{labels.season[language]}</span>
-            <span className="spec-value">{product.season}</span>
+          <div className="products-page-spec-item">
+            <span className="products-page-spec-label">{labels.season[language]}</span>
+            <span className="products-page-spec-value">{product.season}</span>
           </div>
         </div>
       </div>

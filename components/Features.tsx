@@ -1,9 +1,10 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion, useAnimation, useMotionValue } from 'framer-motion'
+import { useKeenSlider } from 'keen-slider/react'
+import type { KeenSliderInstance } from 'keen-slider'
 import { useLanguage } from '@/contexts/LanguageContext'
+import 'keen-slider/keen-slider.min.css'
 import './Features.css'
 
 const productsData = [
@@ -127,17 +128,6 @@ const productsData = [
 
 export default function Features() {
   const { language } = useLanguage()
-  const viewportRef = useRef<HTMLDivElement | null>(null)
-  const trackRef = useRef<HTMLDivElement | null>(null)
-  const controls = useAnimation()
-  const x = useMotionValue(0)
-  const autoplayRef = useRef<number | null>(null)
-  const resumeTimeoutRef = useRef<number | null>(null)
-  const [step, setStep] = useState(0)
-  const [maxOffset, setMaxOffset] = useState(0)
-  const baseCount = productsData.length
-  const [currentIndex, setCurrentIndex] = useState(baseCount)
-  const currentIndexRef = useRef(baseCount)
 
   const labels = {
     sectionLabel: {
@@ -182,87 +172,72 @@ export default function Features() {
     },
   }
 
-  const normalizeIndex = (value: number) => {
-    if (!step) return baseCount
-    if (value < baseCount) return value + baseCount
-    if (value >= baseCount * 2) return value - baseCount
-    return value
-  }
+  const autoplay = (slider: KeenSliderInstance) => {
+    let timeout: ReturnType<typeof setTimeout>
+    let mouseOver = false
 
-  const snapToIndex = (value: number) => {
-    const nextIndex = normalizeIndex(value)
-    const nextX = -nextIndex * step
-    setCurrentIndex(nextIndex)
-    currentIndexRef.current = nextIndex
-    controls.start({
-      x: nextX,
-      transition: { type: 'spring', stiffness: 320, damping: 35 },
+    const clearNextTimeout = () => {
+      if (timeout) {
+        clearTimeout(timeout)
+      }
+    }
+
+    const nextTimeout = () => {
+      clearNextTimeout()
+      if (mouseOver) return
+      timeout = setTimeout(() => {
+        slider.next()
+      }, 3500)
+    }
+
+    const handleMouseEnter = () => {
+      mouseOver = true
+      clearNextTimeout()
+    }
+
+    const handleMouseLeave = () => {
+      mouseOver = false
+      nextTimeout()
+    }
+
+    slider.on('created', () => {
+      slider.container.addEventListener('mouseenter', handleMouseEnter)
+      slider.container.addEventListener('mouseleave', handleMouseLeave)
+      nextTimeout()
+    })
+    slider.on('dragStarted', clearNextTimeout)
+    slider.on('animationEnded', nextTimeout)
+    slider.on('updated', nextTimeout)
+    slider.on('destroyed', () => {
+      slider.container.removeEventListener('mouseenter', handleMouseEnter)
+      slider.container.removeEventListener('mouseleave', handleMouseLeave)
     })
   }
 
-  const stopAutoplay = () => {
-    if (autoplayRef.current !== null) {
-      window.clearInterval(autoplayRef.current)
-      autoplayRef.current = null
-    }
-  }
-
-  const startAutoplay = () => {
-    stopAutoplay()
-    autoplayRef.current = window.setInterval(() => {
-      snapToIndex(currentIndexRef.current + 1)
-    }, 3500)
-  }
-
-  const scheduleAutoplayResume = () => {
-    if (resumeTimeoutRef.current !== null) {
-      window.clearTimeout(resumeTimeoutRef.current)
-    }
-    resumeTimeoutRef.current = window.setTimeout(() => {
-      startAutoplay()
-    }, 4000)
-  }
-
-  useEffect(() => {
-    const viewport = viewportRef.current
-    const track = trackRef.current
-    if (!viewport || !track) return
-
-    const updateMeasurements = () => {
-      const firstCard = track.querySelector<HTMLElement>('.product-card')
-      if (!firstCard) return
-
-      const styles = window.getComputedStyle(track)
-      const gapValue = styles.columnGap || styles.gap || '0'
-      const gap = Number.parseFloat(gapValue) || 0
-      const nextStep = firstCard.offsetWidth + gap
-      const nextMaxOffset = Math.max(0, track.scrollWidth - viewport.clientWidth)
-
-      setStep(nextStep)
-      setMaxOffset(nextMaxOffset)
-
-      const nextIndex = normalizeIndex(currentIndexRef.current)
-      x.set(-nextIndex * nextStep)
-      controls.set({ x: -nextIndex * nextStep })
-    }
-
-    updateMeasurements()
-    window.addEventListener('resize', updateMeasurements)
-
-    return () => {
-      window.removeEventListener('resize', updateMeasurements)
-    }
-  }, [controls, x])
-
-  useEffect(() => {
-    startAutoplay()
-    return () => {
-      stopAutoplay()
-      if (resumeTimeoutRef.current !== null) {
-        window.clearTimeout(resumeTimeoutRef.current)
-      }
-    }
-  }, [])
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
+    {
+      loop: true,
+      slides: {
+        perView: 1,
+        spacing: 14,
+      },
+      breakpoints: {
+        '(min-width: 640px)': {
+          slides: {
+            perView: 2,
+            spacing: 20,
+          },
+        },
+        '(min-width: 1024px)': {
+          slides: {
+            perView: 3,
+            spacing: 28,
+          },
+        },
+      },
+    },
+    [autoplay]
+  )
 
   return (
     <section className="features section">
@@ -278,38 +253,15 @@ export default function Features() {
           <button
             type="button"
             className="products-slider-btn prev"
-            onClick={() => {
-              stopAutoplay()
-              snapToIndex(currentIndex - 1)
-              scheduleAutoplayResume()
-            }}
+            onClick={() => instanceRef.current?.prev()}
             aria-label="Предыдущий товар"
           >
             ‹
           </button>
-          <div
-            ref={viewportRef}
-            className="products-track"
-            onMouseEnter={stopAutoplay}
-            onMouseLeave={startAutoplay}
-          >
-            <motion.div
-              ref={trackRef}
-              className="products-track-inner"
-              drag="x"
-              dragConstraints={{ left: -maxOffset, right: 0 }}
-              style={{ x }}
-              animate={controls}
-              onDragStart={stopAutoplay}
-              onDragEnd={() => {
-                if (!step) return
-                const nextIndex = Math.round(Math.abs(x.get()) / step)
-                snapToIndex(nextIndex)
-                scheduleAutoplayResume()
-              }}
-            >
-              {[...productsData, ...productsData, ...productsData].map((product, index) => (
-                <div key={`${product.id}-${index}`} className="product-card">
+          <div ref={sliderRef} className="keen-slider products-slider-track">
+            {productsData.map(product => (
+              <div key={product.id} className="keen-slider__slide product-slide">
+                <div className="product-card">
                   <div className="product-image">
                     <div className="product-image-inner">
                       <img src={product.image} alt={product.name[language]} />
@@ -341,17 +293,13 @@ export default function Features() {
                     </Link>
                   </div>
                 </div>
-              ))}
-            </motion.div>
+              </div>
+            ))}
           </div>
           <button
             type="button"
             className="products-slider-btn next"
-            onClick={() => {
-              stopAutoplay()
-              snapToIndex(currentIndex + 1)
-              scheduleAutoplayResume()
-            }}
+            onClick={() => instanceRef.current?.next()}
             aria-label="Следующий товар"
           >
             ›

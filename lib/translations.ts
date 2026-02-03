@@ -170,7 +170,7 @@ export const translations = {
       location: 'Наше местоположение',
       address: {
         title: 'Адрес',
-        value: 'Хорезмская область, Республика Узбекистан',
+        value: 'Республика Узбекистан, Хорезмская область, Ургенч ул.Хонка 165',
       },
       phone: {
         title: 'Телефон',
@@ -370,7 +370,7 @@ export const translations = {
       location: 'Our Location',
       address: {
         title: 'Address',
-        value: 'Khorezm Region, Republic of Uzbekistan',
+        value: 'Republic of Uzbekistan, Khorezm Region, Urgench Khonka st.165 ',
       },
       phone: {
         title: 'Phone',

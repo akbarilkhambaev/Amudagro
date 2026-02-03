@@ -37,7 +37,7 @@ export default function Gallery() {
       type: 'image', 
       src: '/gallery/1.jpg',
       height: 400,
-      title: { ru: 'Наши сады', en: 'Our orchards', uz: 'Bizning bog\'larimiz' }
+      title: { ru: '', en: '', uz: '' }
     },
     { 
       id: 2, 
@@ -45,7 +45,7 @@ export default function Gallery() {
       type: 'image', 
       src: '/gallery/2.jpg',
       height: 350,
-      title: { ru: 'Интенсивный сад', en: 'Intensive orchard', uz: 'Intensiv bog\'' }
+      title: { ru: '', en: '', uz: '' }
     },
     { 
       id: 3, 
@@ -53,7 +53,7 @@ export default function Gallery() {
       type: 'image', 
       src: '/gallery/3.jpg',
       height: 450,
-      title: { ru: 'Свежие фрукты', en: 'Fresh fruits', uz: 'Yangi mevalar' }
+      title: { ru: '', en: '', uz: '' }
     },
     { 
       id: 4, 
@@ -61,7 +61,7 @@ export default function Gallery() {
       type: 'image', 
       src: '/gallery/4.jpg',
       height: 380,
-      title: { ru: 'Спелые нектарины', en: 'Ripe nectarines', uz: 'Pishgan nektarinlar' }
+      title: { ru: '', en: '', uz: '' }
     },
     { 
       id: 5, 
@@ -69,7 +69,7 @@ export default function Gallery() {
       type: 'image', 
       src: '/gallery/5.jpg',
       height: 420,
-      title: { ru: 'Современные технологии', en: 'Modern technologies', uz: 'Zamonaviy texnologiyalar' }
+      title: { ru: '', en: '', uz: '' }
     },
     { 
       id: 6, 
@@ -77,23 +77,23 @@ export default function Gallery() {
       type: 'image', 
       src: '/gallery/6.jpg',
       height: 360,
-      title: { ru: 'Качественные абрикосы', en: 'Quality apricots', uz: 'Sifatli o\'riklar' }
+      title: { ru: '', en: '', uz: '' }
     },
         { 
       id: 7, 
       category: 'orchard', 
       type: 'image', 
-      src: '/gallery/5.jpg',
+      src: '/gallery/7.jpg',
       height: 420,
-      title: { ru: 'Современные технологии', en: 'Modern technologies', uz: 'Zamonaviy texnologiyalar' }
+      title: { ru: '', en: '', uz: '' }
     },
         { 
       id: 8, 
       category: 'fruits', 
       type: 'image', 
-      src: '/gallery/3.jpg',
+      src: '/gallery/8.jpg',
       height: 450,
-      title: { ru: 'Свежие фрукты', en: 'Fresh fruits', uz: 'Yangi mevalar' }
+      title: { ru: '', en: '', uz: '' }
     },
   ]
 

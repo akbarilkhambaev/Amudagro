@@ -105,7 +105,7 @@
 }
 
 /* Product Card */
-.product-card {
+.products-page-card {
   display: block;
   background: var(--soft-green);
   border-radius: 16px;
@@ -116,13 +116,13 @@
   color: inherit;
 }
 
-.product-card:hover {
+.products-page-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
   border-color: transparent;
 }
 
-.product-image-wrapper {
+.products-page-image-wrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -130,16 +130,16 @@
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.product-image {
+.products-page-image {
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.product-card:hover .product-image {
+.products-page-card:hover .products-page-image {
   transform: scale(1.1);
 }
 
-.product-overlay {
+.products-page-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -155,11 +155,11 @@
   transition: opacity 0.3s ease;
 }
 
-.product-card:hover .product-overlay {
+.products-page-card:hover .products-page-overlay {
   opacity: 1;
 }
 
-.learn-more-btn {
+.products-page-cta {
   background: var(--soft-green);
   color: var(--primary-green);
   padding: 0.75rem 1.5rem;
@@ -170,22 +170,22 @@
   transition: transform 0.3s ease;
 }
 
-.product-card:hover .learn-more-btn {
+.products-page-card:hover .products-page-cta {
   transform: translateY(0);
 }
 
-.product-info {
+.products-page-info {
   padding: 1.5rem;
 }
 
-.product-name {
+.products-page-name {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-dark);
   margin: 0 0 0.5rem;
 }
 
-.products-list-description {
+.products-page-description {
   font-size: 0.9rem;
   line-height: 1.6;
   color: var(--text-gray);
@@ -196,7 +196,7 @@
   overflow: hidden;
 }
 
-.product-specs {
+.products-page-specs {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -204,13 +204,13 @@
   border-top: 1px solid var(--border-color);
 }
 
-.spec-item {
+.products-page-spec-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.spec-label {
+.products-page-spec-label {
   font-size: 0.8rem;
   color: var(--text-gray);
   font-weight: 500;
@@ -218,7 +218,7 @@
   letter-spacing: 0.03em;
 }
 
-.spec-value {
+.products-page-spec-value {
   font-size: 0.9rem;
   color: var(--text-dark);
   font-weight: 600;
@@ -304,12 +304,20 @@
     gap: 1.5rem;
   }
 
-  .product-info {
+  .products-page-info {
     padding: 1.25rem;
   }
 
-  .product-name {
+  .products-page-name {
     font-size: 1.1rem;
+  }
+
+  .products-page-overlay {
+    opacity: 1;
+  }
+
+  .products-page-cta {
+    transform: translateY(0);
   }
 
   .varieties-info {
