@@ -102,7 +102,7 @@ export default function Contacts() {
                 </div>
                 <div className="info-content">
                   <h3>{t.contacts.phone.title}</h3>
-                  
+                  <p>+998 90 935 81 00</p>
                 </div>
               </a>
               <a href="mailto:info@amudagro.uz" className="info-item info-item-link">
@@ -111,7 +111,7 @@ export default function Contacts() {
                 </div>
                 <div className="info-content">
                   <h3>{t.contacts.email.title}</h3>
-                  
+                  <p>info@amudagro.uz</p>
                 </div>
               </a>
               <a href="https://wa.me/qr/H4XTW66UIB7XJ1" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
@@ -120,7 +120,7 @@ export default function Contacts() {
                 </div>
                 <div className="info-content">
                   <h3>{t.contacts.whatsapp}</h3>
-                  
+                  <p>{t.contacts.subtitle}</p>
                 </div>
               </a>
               <a href="https://t.me/msabirov" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
@@ -129,7 +129,7 @@ export default function Contacts() {
                 </div>
                 <div className="info-content">
                   <h3>{t.contacts.telegram}</h3>
-                  
+                  <p>{t.contacts.subtitle}</p>
                 </div>
               </a>
               <a href="https://instagram.com/amudagro" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
@@ -138,7 +138,7 @@ export default function Contacts() {
                 </div>
                 <div className="info-content">
                   <h3>Instagram</h3>
-                  
+                  <p>{t.contacts.subtitle}</p>
                 </div>
               </a>
               <a href="https://max.ru/u/f9LHodD0cOJG7LyWWi_CPVHdYakpPnMud_fBbzKg2BEV9OX20Dwx_Rj-ONc" target="_blank" rel="noopener noreferrer" className="info-item info-item-link">
@@ -147,7 +147,7 @@ export default function Contacts() {
                 </div>
                 <div className="info-content">
                   <h3>MAX</h3>
-                 
+                  <p>{t.contacts.subtitle}</p>
                 </div>
               </a>
             </div>

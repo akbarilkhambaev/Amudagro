@@ -31,9 +31,9 @@ const productsData = [
       },
       sugar: '16° Brix',
       color: {
-        ru: 'Ярко-красный',
-        en: 'Bright red',
-        uz: 'Yorqin qizil',
+        ru: 'Красный',
+        en: 'Red',
+        uz: 'Qizil',
       }
     }
   },
@@ -60,9 +60,9 @@ const productsData = [
       },
       sugar: '15° Brix',
       color: {
-        ru: 'Желто-красный',
-        en: 'Yellow-red',
-        uz: 'Sariq-qizil',
+        ru: 'Ярко-красный',
+        en: 'Bright red',
+        uz: 'Yorqin qizil',
       }
     }
   },
@@ -118,9 +118,9 @@ const productsData = [
       },
       sugar: '19° Brix',
       color: {
-        ru: 'Глубокий оранжевый',
-        en: 'Deep orange',
-        uz: 'Chuqur to\'q sariq',
+        ru: 'Оранжево-красный',
+        en: 'Orange-red',
+        uz: 'To\'q sariq-qizil',
       }
     }
   }
@@ -161,7 +161,7 @@ export default function Features() {
       uz: 'Shakar',
     },
     color: {
-      ru: 'Цвет',
+      ru: 'Окрас',
       en: 'Color',
       uz: 'Rang',
     },
