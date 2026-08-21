@@ -45,6 +45,11 @@ export const translations = {
         title: 'Современная сортировка — MAF Roda (Франция)',
         desc: 'Профессиональная сортировочная линия обеспечивает автоматическую калибровку и отбор по качеству',
       },
+      shorts: {
+        label: 'Видео',
+        title: 'AMUDAGRO в коротких видео',
+        subtitle: 'Сад, урожай и производство — в формате коротких роликов',
+      },
     },
     about: {
       title: 'О компании',
@@ -245,6 +250,11 @@ export const translations = {
         title: 'Modern Sorting — MAF Roda (France)',
         desc: 'Professional sorting line ensures automatic calibration and quality selection',
       },
+      shorts: {
+        label: 'Video',
+        title: 'AMUDAGRO in Short Videos',
+        subtitle: 'Orchards, harvest and production — in short video format',
+      },
     },
     about: {
       title: 'About Company',
@@ -443,6 +453,11 @@ export const translations = {
       mafRoda: {
         title: 'Zamonaviy saralash — MAF Roda (Fransiya)',
         desc: 'Professional saralash liniyasi avtomatik kalibratsiya va sifat bo\'yicha tanlashni ta\'minlaydi',
+      },
+      shorts: {
+        label: 'Video',
+        title: 'AMUDAGRO qisqa videolarda',
+        subtitle: 'Bog\', hosil va ishlab chiqarish — qisqa video formatida',
       },
     },
     about: {

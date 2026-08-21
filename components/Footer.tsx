@@ -23,7 +23,7 @@ export default function Footer() {
               <a href="#" aria-label="Telegram" className="social-link">
                 <FaTelegram />
               </a>
-              <a href="#" aria-label="Instagram" className="social-link">
+              <a href="https://www.instagram.com/amudagro/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-link">
                 <FaInstagram />
               </a>
             </div>

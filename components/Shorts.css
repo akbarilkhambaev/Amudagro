@@ -1,0 +1,239 @@
+/* ============================================
+   SHORTS SECTION
+   ============================================ */
+
+.shorts {
+  background: linear-gradient(135deg, #0e1913 0%, #0a130e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.shorts::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.shorts-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.shorts-header .section-label {
+  color: var(--secondary-green);
+}
+
+.shorts-header .section-title {
+  color: #ffffff;
+}
+
+.shorts-header .section-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===== Slider ===== */
+.shorts-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 1;
+}
+
+.shorts-track {
+  width: 100%;
+  touch-action: pan-y;
+}
+
+.shorts-nav-btn {
+  flex-shrink: 0;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+.shorts-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: white;
+}
+
+/* ===== Card ===== */
+.shorts-slide {
+  display: flex;
+}
+
+.shorts-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border: none;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #10201a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shorts-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.shorts-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.shorts-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  padding-left: 4px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.shorts-card:hover .shorts-play {
+  background: var(--primary-green);
+  border-color: var(--primary-green);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* ===== Modal ===== */
+.shorts-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  cursor: pointer;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.shorts-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  cursor: default;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.shorts-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+}
+
+.shorts-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  transform: rotate(90deg);
+}
+
+.shorts-modal-video {
+  width: 100%;
+  aspect-ratio: 9/16;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  background: black;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .shorts-nav-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .shorts-slider {
+    gap: 0.5rem;
+  }
+
+  .shorts-modal-overlay {
+    padding: 1rem;
+  }
+
+  .shorts-modal-close {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .shorts-nav-btn {
+    display: none;
+  }
+}

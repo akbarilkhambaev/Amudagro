@@ -1,9 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Image from 'next/image'
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import './page.css'
 
 interface GalleryItem {
@@ -22,7 +22,7 @@ interface GalleryItem {
 export default function Gallery() {
   const { t, language } = useLanguage()
   const [activeCategory, setActiveCategory] = useState<string>('all')
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null)
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
   const categories = [
     { id: 'all', nameRu: 'Все', nameEn: 'All', nameUz: 'Hammasi' },
@@ -87,19 +87,163 @@ export default function Gallery() {
       height: 420,
       title: { ru: '', en: '', uz: '' }
     },
-        { 
-      id: 8, 
-      category: 'fruits', 
-      type: 'image', 
+        {
+      id: 8,
+      category: 'fruits',
+      type: 'image',
       src: '/gallery/8.jpg',
       height: 450,
       title: { ru: '', en: '', uz: '' }
     },
+    {
+      id: 9,
+      category: 'orchard',
+      type: 'image',
+      src: '/gallery/9.jpg',
+      height: 400,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 10,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/10.jpg',
+      height: 360,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 11,
+      category: 'orchard',
+      type: 'image',
+      src: '/gallery/11.jpg',
+      height: 430,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 12,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/12.jpg',
+      height: 380,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 13,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/13.jpg',
+      height: 410,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 14,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/14.jpg',
+      height: 440,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 15,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/15.jpg',
+      height: 370,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 16,
+      category: 'orchard',
+      type: 'image',
+      src: '/gallery/16.jpg',
+      height: 420,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 17,
+      category: 'orchard',
+      type: 'image',
+      src: '/gallery/17.jpg',
+      height: 450,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 18,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/18.jpg',
+      height: 390,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 19,
+      category: 'orchard',
+      type: 'image',
+      src: '/gallery/19.jpg',
+      height: 430,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 20,
+      category: 'orchard',
+      type: 'image',
+      src: '/gallery/20.jpg',
+      height: 400,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 21,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/21.jpg',
+      height: 360,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 22,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/22.jpg',
+      height: 420,
+      title: { ru: '', en: '', uz: '' }
+    },
+    {
+      id: 23,
+      category: 'fruits',
+      type: 'image',
+      src: '/gallery/23.jpg',
+      height: 380,
+      title: { ru: '', en: '', uz: '' }
+    },
   ]
 
-  const filteredItems = activeCategory === 'all' 
-    ? galleryItems 
+  const filteredItems = activeCategory === 'all'
+    ? galleryItems
     : galleryItems.filter(item => item.category === activeCategory)
+
+  const selectedImage = selectedIndex !== null ? filteredItems[selectedIndex] : null
+
+  const showPrev = () => {
+    setSelectedIndex((prev) => prev === null ? prev : (prev - 1 + filteredItems.length) % filteredItems.length)
+  }
+
+  const showNext = () => {
+    setSelectedIndex((prev) => prev === null ? prev : (prev + 1) % filteredItems.length)
+  }
+
+  useEffect(() => {
+    if (selectedIndex === null) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') showPrev()
+      else if (e.key === 'ArrowRight') showNext()
+      else if (e.key === 'Escape') setSelectedIndex(null)
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedIndex, filteredItems.length])
 
   return (
     <div className="page-container">
@@ -128,11 +272,11 @@ export default function Gallery() {
           </div>
 
           <div className="masonry-grid">
-            {filteredItems.map((item) => (
-              <div 
-                key={item.id} 
+            {filteredItems.map((item, index) => (
+              <div
+                key={item.id}
                 className="masonry-item"
-                onClick={() => setSelectedImage(item)}
+                onClick={() => setSelectedIndex(index)}
                 style={{ height: `${item.height}px` }}
               >
                 <div className="image-wrapper">
@@ -165,11 +309,21 @@ export default function Gallery() {
 
       {/* Modal */}
       {selectedImage && (
-        <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
+        <div className="modal-overlay" onClick={() => setSelectedIndex(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={() => setSelectedImage(null)}>
+            <button className="modal-close" onClick={() => setSelectedIndex(null)}>
               <FaTimes />
             </button>
+            {filteredItems.length > 1 && (
+              <>
+                <button className="modal-nav modal-prev" onClick={showPrev} aria-label="Previous">
+                  <FaChevronLeft />
+                </button>
+                <button className="modal-nav modal-next" onClick={showNext} aria-label="Next">
+                  <FaChevronRight />
+                </button>
+              </>
+            )}
             <div className="modal-image-wrapper">
               <Image
                 src={selectedImage.src}
