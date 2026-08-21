@@ -215,7 +215,6 @@ export default function Shorts() {
         <div className="shorts-header">
           <span className="section-label">{t.home.shorts.label}</span>
           <h2 className="section-title">{t.home.shorts.title}</h2>
-          <p className="section-subtitle">{t.home.shorts.subtitle}</p>
         </div>
 
         <div className="shorts-slider">

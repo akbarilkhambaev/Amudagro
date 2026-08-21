@@ -48,7 +48,6 @@ export const translations = {
       shorts: {
         label: 'Видео',
         title: 'AMUDAGRO в коротких видео',
-        subtitle: 'Сад, урожай и производство — в формате коротких роликов',
       },
     },
     about: {
@@ -253,7 +252,6 @@ export const translations = {
       shorts: {
         label: 'Video',
         title: 'AMUDAGRO in Short Videos',
-        subtitle: 'Orchards, harvest and production — in short video format',
       },
     },
     about: {
@@ -457,7 +455,6 @@ export const translations = {
       shorts: {
         label: 'Video',
         title: 'AMUDAGRO qisqa videolarda',
-        subtitle: 'Bog\', hosil va ishlab chiqarish — qisqa video formatida',
       },
     },
     about: {
