@@ -16,6 +16,7 @@ interface ShortItem {
 const shortsData: ShortItem[] = [
   { id: 1, src: '/videos/shorts_1.mp4', poster: '/videos/shorts_1-poster.jpg' },
   { id: 2, src: '/videos/shorts_2.mp4', poster: '/videos/shorts_2-poster.jpg' },
+  { id: 3, src: '/videos/shorts_3.mp4', poster: '/videos/shorts_3-poster.jpg' },
 ]
 
 export default function Shorts() {
