@@ -1,9 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { FaPlay, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import {
+  FaPlay,
+  FaPause,
+  FaTimes,
+  FaChevronLeft,
+  FaChevronRight,
+  FaVolumeUp,
+  FaVolumeMute,
+  FaExpand,
+  FaCompress,
+} from 'react-icons/fa'
 import 'keen-slider/keen-slider.min.css'
 import './Shorts.css'
 
@@ -18,6 +28,164 @@ const shortsData: ShortItem[] = [
   { id: 2, src: '/videos/shorts_2.mp4', poster: '/videos/shorts_2-poster.jpg' },
   { id: 3, src: '/videos/shorts_3.mp4', poster: '/videos/shorts_3-poster.jpg' },
 ]
+
+function formatTime(seconds: number): string {
+  if (!isFinite(seconds)) return '0:00'
+  const m = Math.floor(seconds / 60)
+  const s = Math.floor(seconds % 60)
+  return `${m}:${s.toString().padStart(2, '0')}`
+}
+
+function ShortsPlayer({ item, onClose }: { item: ShortItem; onClose: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const progressBarRef = useRef<HTMLDivElement>(null)
+
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
+  const [progress, setProgress] = useState(0)
+  const [buffered, setBuffered] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [isFullscreen, setIsFullscreen] = useState(false)
+  const [isSeeking, setIsSeeking] = useState(false)
+
+  const togglePlay = () => {
+    const video = videoRef.current
+    if (!video) return
+    if (video.paused) video.play()
+    else video.pause()
+  }
+
+  const toggleMute = () => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = !video.muted
+    setIsMuted(video.muted)
+  }
+
+  const toggleFullscreen = () => {
+    const container = containerRef.current
+    if (!container) return
+    if (!document.fullscreenElement) container.requestFullscreen?.()
+    else document.exitFullscreen?.()
+  }
+
+  const seekToRatio = (ratio: number) => {
+    const video = videoRef.current
+    if (!video || !duration) return
+    video.currentTime = Math.min(Math.max(ratio, 0), 1) * duration
+  }
+
+  const ratioFromEvent = (e: { clientX: number }) => {
+    const bar = progressBarRef.current
+    if (!bar) return 0
+    const rect = bar.getBoundingClientRect()
+    return (e.clientX - rect.left) / rect.width
+  }
+
+  useEffect(() => {
+    const handleFsChange = () => setIsFullscreen(!!document.fullscreenElement)
+    document.addEventListener('fullscreenchange', handleFsChange)
+    return () => document.removeEventListener('fullscreenchange', handleFsChange)
+  }, [])
+
+  useEffect(() => {
+    if (!isSeeking) return
+    const handleMove = (e: MouseEvent) => seekToRatio(ratioFromEvent(e))
+    const handleUp = () => setIsSeeking(false)
+    window.addEventListener('mousemove', handleMove)
+    window.addEventListener('mouseup', handleUp)
+    return () => {
+      window.removeEventListener('mousemove', handleMove)
+      window.removeEventListener('mouseup', handleUp)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSeeking, duration])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+      else if (e.key === ' ') {
+        e.preventDefault()
+        togglePlay()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <div className="shorts-modal-content" ref={containerRef} onClick={(e) => e.stopPropagation()}>
+      <button className="shorts-modal-close" onClick={onClose} aria-label="Close">
+        <FaTimes />
+      </button>
+
+      <div className="shorts-player" onClick={togglePlay}>
+        <video
+          ref={videoRef}
+          className="shorts-modal-video"
+          src={item.src}
+          poster={item.poster}
+          autoPlay
+          playsInline
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+          onTimeUpdate={(e) => {
+            const video = e.currentTarget
+            setCurrentTime(video.currentTime)
+            if (video.duration) setProgress((video.currentTime / video.duration) * 100)
+          }}
+          onProgress={(e) => {
+            const video = e.currentTarget
+            if (video.buffered.length && video.duration) {
+              setBuffered((video.buffered.end(video.buffered.length - 1) / video.duration) * 100)
+            }
+          }}
+        />
+
+        <div className={`shorts-player-center ${isPlaying ? 'is-hidden' : ''}`}>
+          <span className="shorts-player-big-btn">
+            {isPlaying ? <FaPause /> : <FaPlay />}
+          </span>
+        </div>
+
+        <div className="shorts-player-controls" onClick={(e) => e.stopPropagation()}>
+          <button type="button" className="shorts-player-btn" onClick={togglePlay} aria-label="Play/Pause">
+            {isPlaying ? <FaPause /> : <FaPlay />}
+          </button>
+
+          <div
+            className="shorts-progress"
+            ref={progressBarRef}
+            onMouseDown={(e) => {
+              setIsSeeking(true)
+              seekToRatio(ratioFromEvent(e))
+            }}
+          >
+            <div className="shorts-progress-buffered" style={{ width: `${buffered}%` }} />
+            <div className="shorts-progress-played" style={{ width: `${progress}%` }} />
+            <div className="shorts-progress-handle" style={{ left: `${progress}%` }} />
+          </div>
+
+          <span className="shorts-time">
+            {formatTime(currentTime)} / {formatTime(duration)}
+          </span>
+
+          <button type="button" className="shorts-player-btn" onClick={toggleMute} aria-label="Mute/Unmute">
+            {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+          </button>
+
+          <button type="button" className="shorts-player-btn" onClick={toggleFullscreen} aria-label="Fullscreen">
+            {isFullscreen ? <FaCompress /> : <FaExpand />}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export default function Shorts() {
   const { t } = useLanguage()
@@ -96,18 +264,7 @@ export default function Shorts() {
 
       {activeVideo && (
         <div className="shorts-modal-overlay" onClick={() => setActiveVideo(null)}>
-          <div className="shorts-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="shorts-modal-close" onClick={() => setActiveVideo(null)}>
-              <FaTimes />
-            </button>
-            <video
-              className="shorts-modal-video"
-              src={activeVideo.src}
-              controls
-              autoPlay
-              playsInline
-            />
-          </div>
+          <ShortsPlayer item={activeVideo} onClose={() => setActiveVideo(null)} />
         </div>
       )}
     </section>
