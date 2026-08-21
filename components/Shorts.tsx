@@ -10,11 +10,12 @@ import './Shorts.css'
 interface ShortItem {
   id: number
   src: string
+  poster: string
 }
 
 const shortsData: ShortItem[] = [
-  { id: 1, src: '/videos/shorts_1.mp4' },
-  { id: 2, src: '/videos/shorts_2.mp4' },
+  { id: 1, src: '/videos/shorts_1.mp4', poster: '/videos/shorts_1-poster.jpg' },
+  { id: 2, src: '/videos/shorts_2.mp4', poster: '/videos/shorts_2-poster.jpg' },
 ]
 
 export default function Shorts() {
@@ -67,12 +68,11 @@ export default function Shorts() {
                   onClick={() => setActiveVideo(item)}
                   aria-label="Play video"
                 >
-                  <video
+                  <img
                     className="shorts-thumb"
-                    src={`${item.src}#t=0.5`}
-                    muted
-                    playsInline
-                    preload="metadata"
+                    src={item.poster}
+                    alt=""
+                    loading="lazy"
                   />
                   <span className="shorts-play">
                     <FaPlay />
